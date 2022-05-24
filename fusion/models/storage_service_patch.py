@@ -29,45 +29,45 @@ class StorageServicePatch(ResourcePatch):
                             and the value is json key in definition.
     """
     swagger_types = {
-        'hardare_types': 'NullableStringArray'
+        'hardware_types': 'NullableStringArray'
     }
     if hasattr(ResourcePatch, "swagger_types"):
         swagger_types.update(ResourcePatch.swagger_types)
 
     attribute_map = {
-        'hardare_types': 'hardare_types'
+        'hardware_types': 'hardware_types'
     }
     if hasattr(ResourcePatch, "attribute_map"):
         attribute_map.update(ResourcePatch.attribute_map)
 
-    def __init__(self, hardare_types=None, *args, **kwargs):  # noqa: E501
+    def __init__(self, hardware_types=None, *args, **kwargs):  # noqa: E501
         """StorageServicePatch - a model defined in Swagger"""  # noqa: E501
-        self._hardare_types = None
+        self._hardware_types = None
         self.discriminator = None
-        if hardare_types is not None:
-            self.hardare_types = hardare_types
+        if hardware_types is not None:
+            self.hardware_types = hardware_types
         ResourcePatch.__init__(self, *args, **kwargs)
 
     @property
-    def hardare_types(self):
-        """Gets the hardare_types of this StorageServicePatch.  # noqa: E501
+    def hardware_types(self):
+        """Gets the hardware_types of this StorageServicePatch.  # noqa: E501
 
 
-        :return: The hardare_types of this StorageServicePatch.  # noqa: E501
+        :return: The hardware_types of this StorageServicePatch.  # noqa: E501
         :rtype: NullableStringArray
         """
-        return self._hardare_types
+        return self._hardware_types
 
-    @hardare_types.setter
-    def hardare_types(self, hardare_types):
-        """Sets the hardare_types of this StorageServicePatch.
+    @hardware_types.setter
+    def hardware_types(self, hardware_types):
+        """Sets the hardware_types of this StorageServicePatch.
 
 
-        :param hardare_types: The hardare_types of this StorageServicePatch.  # noqa: E501
+        :param hardware_types: The hardware_types of this StorageServicePatch.  # noqa: E501
         :type: NullableStringArray
         """
 
-        self._hardare_types = hardare_types
+        self._hardware_types = hardware_types
 
     def to_dict(self):
         """Returns the model properties as a dict"""

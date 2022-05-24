@@ -31,30 +31,30 @@ class StorageEndpointIscsiDiscoveryInterface(object):
         'address': 'str',
         'gateway': 'str',
         'mtu': 'int',
-        'subinterface_groups': 'list[NetworkInterfaceGroupRef]'
+        'network_interface_groups': 'list[NetworkInterfaceGroupRef]'
     }
 
     attribute_map = {
         'address': 'address',
         'gateway': 'gateway',
         'mtu': 'mtu',
-        'subinterface_groups': 'subinterface_groups'
+        'network_interface_groups': 'network_interface_groups'
     }
 
-    def __init__(self, address=None, gateway=None, mtu=None, subinterface_groups=None):  # noqa: E501
+    def __init__(self, address=None, gateway=None, mtu=None, network_interface_groups=None):  # noqa: E501
         """StorageEndpointIscsiDiscoveryInterface - a model defined in Swagger"""  # noqa: E501
         self._address = None
         self._gateway = None
         self._mtu = None
-        self._subinterface_groups = None
+        self._network_interface_groups = None
         self.discriminator = None
         self.address = address
         if gateway is not None:
             self.gateway = gateway
         if mtu is not None:
             self.mtu = mtu
-        if subinterface_groups is not None:
-            self.subinterface_groups = subinterface_groups
+        if network_interface_groups is not None:
+            self.network_interface_groups = network_interface_groups
 
     @property
     def address(self):
@@ -128,25 +128,25 @@ class StorageEndpointIscsiDiscoveryInterface(object):
         self._mtu = mtu
 
     @property
-    def subinterface_groups(self):
-        """Gets the subinterface_groups of this StorageEndpointIscsiDiscoveryInterface.  # noqa: E501
+    def network_interface_groups(self):
+        """Gets the network_interface_groups of this StorageEndpointIscsiDiscoveryInterface.  # noqa: E501
 
 
-        :return: The subinterface_groups of this StorageEndpointIscsiDiscoveryInterface.  # noqa: E501
+        :return: The network_interface_groups of this StorageEndpointIscsiDiscoveryInterface.  # noqa: E501
         :rtype: list[NetworkInterfaceGroupRef]
         """
-        return self._subinterface_groups
+        return self._network_interface_groups
 
-    @subinterface_groups.setter
-    def subinterface_groups(self, subinterface_groups):
-        """Sets the subinterface_groups of this StorageEndpointIscsiDiscoveryInterface.
+    @network_interface_groups.setter
+    def network_interface_groups(self, network_interface_groups):
+        """Sets the network_interface_groups of this StorageEndpointIscsiDiscoveryInterface.
 
 
-        :param subinterface_groups: The subinterface_groups of this StorageEndpointIscsiDiscoveryInterface.  # noqa: E501
+        :param network_interface_groups: The network_interface_groups of this StorageEndpointIscsiDiscoveryInterface.  # noqa: E501
         :type: list[NetworkInterfaceGroupRef]
         """
 
-        self._subinterface_groups = subinterface_groups
+        self._network_interface_groups = network_interface_groups
 
     def to_dict(self):
         """Returns the model properties as a dict"""

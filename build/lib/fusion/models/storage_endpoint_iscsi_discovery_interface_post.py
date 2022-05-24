@@ -30,26 +30,26 @@ class StorageEndpointIscsiDiscoveryInterfacePost(object):
     swagger_types = {
         'address': 'str',
         'gateway': 'str',
-        'subinterface_groups': 'list[str]'
+        'network_interface_groups': 'list[str]'
     }
 
     attribute_map = {
         'address': 'address',
         'gateway': 'gateway',
-        'subinterface_groups': 'subinterface_groups'
+        'network_interface_groups': 'network_interface_groups'
     }
 
-    def __init__(self, address=None, gateway=None, subinterface_groups=None):  # noqa: E501
+    def __init__(self, address=None, gateway=None, network_interface_groups=None):  # noqa: E501
         """StorageEndpointIscsiDiscoveryInterfacePost - a model defined in Swagger"""  # noqa: E501
         self._address = None
         self._gateway = None
-        self._subinterface_groups = None
+        self._network_interface_groups = None
         self.discriminator = None
         self.address = address
         if gateway is not None:
             self.gateway = gateway
-        if subinterface_groups is not None:
-            self.subinterface_groups = subinterface_groups
+        if network_interface_groups is not None:
+            self.network_interface_groups = network_interface_groups
 
     @property
     def address(self):
@@ -100,25 +100,25 @@ class StorageEndpointIscsiDiscoveryInterfacePost(object):
         self._gateway = gateway
 
     @property
-    def subinterface_groups(self):
-        """Gets the subinterface_groups of this StorageEndpointIscsiDiscoveryInterfacePost.  # noqa: E501
+    def network_interface_groups(self):
+        """Gets the network_interface_groups of this StorageEndpointIscsiDiscoveryInterfacePost.  # noqa: E501
 
 
-        :return: The subinterface_groups of this StorageEndpointIscsiDiscoveryInterfacePost.  # noqa: E501
+        :return: The network_interface_groups of this StorageEndpointIscsiDiscoveryInterfacePost.  # noqa: E501
         :rtype: list[str]
         """
-        return self._subinterface_groups
+        return self._network_interface_groups
 
-    @subinterface_groups.setter
-    def subinterface_groups(self, subinterface_groups):
-        """Sets the subinterface_groups of this StorageEndpointIscsiDiscoveryInterfacePost.
+    @network_interface_groups.setter
+    def network_interface_groups(self, network_interface_groups):
+        """Sets the network_interface_groups of this StorageEndpointIscsiDiscoveryInterfacePost.
 
 
-        :param subinterface_groups: The subinterface_groups of this StorageEndpointIscsiDiscoveryInterfacePost.  # noqa: E501
+        :param network_interface_groups: The network_interface_groups of this StorageEndpointIscsiDiscoveryInterfacePost.  # noqa: E501
         :type: list[str]
         """
 
-        self._subinterface_groups = subinterface_groups
+        self._network_interface_groups = network_interface_groups
 
     def to_dict(self):
         """Returns the model properties as a dict"""
