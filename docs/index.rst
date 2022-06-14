@@ -1,4 +1,4 @@
-Pure Storage Fusion Python Client Documentation
+Pure Storage Fusion Python SDK Documentation
 =================================================
 
 .. toctree::
@@ -13,12 +13,11 @@ Pure Storage Fusion Python Client Documentation
 Overview
 --------
 
-The **Pure Storage Fusion Python Client** is a python module that simplifies
+The **Pure Storage Fusion Python SDK** is a python module that simplifies
 integration with the Pure Storage Fusion REST interface.
 
 It wraps REST calls with simple APIs and abstracts the HTTP request and
-response handling. For specifics on API arguments, consult the REST API
-guide for the Purity release currently running on the target array.
+response handling.
 
 This documentation should be supplemental and attempts to explain installation,
 basic usage, and provides a glossary of the exposed APIs.
@@ -27,10 +26,10 @@ basic usage, and provides a glossary of the exposed APIs.
   How to get the source code, and how to build or install the python package.
 
 :doc:`quick_start`
-  A quick start guide for the REST client.
+  A quick start guide for the Fusion Python SDK.
 
 :doc:`api`
-  A glossary of all exposed REST client APIs.
+  A glossary of all exposed Fusion APIs.
 
 
 Community
