@@ -54,6 +54,7 @@ Now, we will need to create an instance of the API Client: we will use this to c
     >>> api_instance = fusion.TenantsApi(fusion.ApiClient(configuration))
 
 The next step is to make the request body and send the POST request.
+
 .. code-block:: python
 
     body = fusion.TenantPost(name="t") # TenantPost | 
@@ -66,4 +67,4 @@ The next step is to make the request body and send the POST request.
         print("Exception when calling TenantsApi->create_tenant: %s\n" % e)
 
 Now, we should get a returned operation which is something that the caller can wait on
-for any next steps.
+for any next steps. You can find examples of waiting for an operation in our examples on Github.
