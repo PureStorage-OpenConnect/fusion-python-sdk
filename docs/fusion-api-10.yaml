@@ -133,6 +133,28 @@ paths:
           type: string
           description: Filter by Attributes in format "<key1>:<value1>,<key2>:<value2>,...",
             key is resource name or id, e.g. "placement-group:pg1,storage-class-id:<uuid>"
+      - in: query
+        name: sort
+        schema:
+          type: string
+          description: The database columns to sort the operations by.
+      - in: query
+        name: limit
+        schema:
+          type: integer
+          format: int32
+          description: The amount of results wanted.
+      - in: query
+        name: offset
+        schema:
+          type: integer
+          format: int32
+          description: The offset for the results.
+      - in: query
+        name: created_after
+        schema:
+          type: string
+          description: The operations that were created after a given time.
       responses:
         '200':
           description: A JSON array of Operations
@@ -3323,33 +3345,42 @@ paths:
             examples:
               Change display name:
                 value:
-                  display_name: "New display name"
+                  display_name:
+                    value: "New display name"
               Copy from a volume snapshot:
                 value:
-                  source_volume_snapshot_link: >-
-                    /tenants/eng/tenant-spaces/ts1/snapshots/snap1/volume-snapshots/vol1
+                  source_volume_snapshot_link:
+                    value: /tenants/eng/tenant-spaces/ts1/snapshots/snap1/volume-snapshots/vol1
               Change storage class:
                 value:
-                  storage_class: "silver"
+                  storage_class:
+                    value: "silver"
               Change placement group:
                 value:
-                  placement_group: "pg2"
+                  placement_group:
+                    value: "pg2"
               Change storage class and placement group:
                 value:
-                  storage_class: "silver"
-                  placement_group: "pg2"
+                  storage_class:
+                    value: "silver"
+                  placement_group:
+                    value: "pg2"
               Change protection policy:
                 value:
-                  protection_policy: "hourly"
+                  protection_policy:
+                    value: "hourly"
               Change volume size:
                 value:
-                  size: 1048576
+                  size:
+                    value: 1048576
               Volume to connect to host1, host2, and host3:
                 value:
-                  host_access_policies: "host1,host2,host3"
+                  host_access_policies:
+                    value: "host1,host2,host3"
               Volume to connect to host1 and host2, but not host3:
                 value:
-                  host_access_policies: "host1,host2"
+                  host_access_policies:
+                    value: "host1,host2"
       responses:
         '202':
           description: Update request accepted. Returns an Operation.
@@ -4141,11 +4172,13 @@ paths:
             examples:
               Change display name:
                 value:
-                  display_name: "New display name"
+                  display_name:
+                    value: "New display name"
               Change of accepted hardware types:
                 value:
                   hardware_types:
-                  - "flash-array-x"
+                    value:
+                    - "flash-array-x"
       responses:
         '202':
           description: Update request accepted. Returns an operation.
@@ -4614,7 +4647,8 @@ paths:
             examples:
               Rename storage class's Display Name:
                 value:
-                  display_name: "New Name"
+                  display_name:
+                    value: "New Display Name"
       responses:
         '202':
           description: Update request accepted. Returns an operation.
@@ -5350,7 +5384,8 @@ paths:
             examples:
               Recover a pending snapshot:
                 value:
-                  destroyed: false
+                  destroyed:
+                    value: false
       responses:
         '202':
           description: Update request accepted. Returns an operation.
@@ -6503,7 +6538,8 @@ paths:
             examples:
               Assign PlacementGroup to an Array:
                 value:
-                  hm_array: "array1"
+                  array:
+                    value: "array1"
       responses:
         '202':
           description: Patch request accepted. Returns an Operation object.
@@ -14629,7 +14665,7 @@ components:
       - $ref: "#/components/schemas/ResourcePatch"
       - type: object
         properties:
-          hm_array:
+          array:
             description: (Provider) The name of the Array that this PG should be moved
               to. Must preserve StorageService requirements
             $ref: "#/components/schemas/NullableString"
@@ -14638,8 +14674,6 @@ components:
       - $ref: "#/components/schemas/ResourcePost"
       - type: object
         properties:
-          placement_engine:
-            $ref: "#/components/schemas/PlacementEngine"
           availability_zone:
             type: string
             description: The name of the Availability Zone that this PG should be
@@ -14858,8 +14892,8 @@ components:
         created_at:
           type: integer
           format: int64
-          description: The time the operation was created, in milliseconds since the
-            Unix.
+          description: The time that the operation was created, in milliseconds since
+            the Unix.
       required:
       - request_type
       - id
@@ -14894,6 +14928,23 @@ components:
             resource_id: "<uuid>"
         pure_code:
           type: string
+          description: >
+            Pure Code describing the error. May be more specific than the HTTP code.
+            The code may be one of the following. INTERNAL - An internal error occurred.
+            NOT_FOUND - A resource was not found. ALREADY_EXISTS - A resource cannot
+            be created because one already exists by this name. INVALID_ARGUMENT -
+            An argument value is incorrect. NOT_AUTHENTICATED - The client is not
+            authenticated. PERMISSION_DENIED - The client is authenticated, but lacks
+            a specific permission required for this action. NOT_IMPLEMENTED - The
+            functionality has not been implemented yet. FAILED_PRECONDITION - A precondition
+            of the action is not fulfilled. For instance, trying to use a resource
+            that is being deleted. CONFLICT - This action came into conflict with
+            another. FAILED_TRANSACTION - An action could not be performed due to
+            conflict with another transaction. CANCELED - The action was canceled.
+            DEADLINE_EXCEEDED - The action could not be completed in the time allotted.
+            UNAVAILABLE - A required service is unavailable. EXHAUSTED - A required
+            resource is not available. For instance, there is no storage space in
+            the Placement Group.
           enum:
           - INTERNAL
           - NOT_FOUND
@@ -14912,6 +14963,23 @@ components:
           example: "FAILED_PRECONDITION"
         http_code:
           type: integer
+          description: >
+            The HTTP code returned by the request. It will be the same as the header
+            response status code. The code may be one of the following. 400 Bad Request
+            - The request payload is malformed; e.g. incorrection JSON. 401 Unauthorized
+            - The client is not authenticated. 403 Forbidden - The client is authenticated,
+            but lacks a specific permission required for this action. 404 Not Found
+            - A resource was not found. 408 Request Timeout - The action could not
+            be completed in the time allotted. 409 Conflict - This action came into
+            conflict with another. 412 Precondition Failed - A precondition of the
+            action is not fulfilled. For instance, trying to use a resource that is
+            being deleted. 422 Unprocessable Entity - An argument value is incorrect.
+            The request was well-formed but was unable to be followed due to semantic
+            errors; e.g. an incorrect enum value. 429 Too Many Requests - The user
+            has sent too many requests in a given amount of time ("rate limiting").
+            500 Internal Server Error - An internal error occurred. 501 Not Implemented
+            - The functionality has not been implemented yet. 503 Service Unavailable
+            - A required service is unavailable.
           enum:
           - 401
           - 403
