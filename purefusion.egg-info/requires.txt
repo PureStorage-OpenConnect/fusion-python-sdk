@@ -1,4 +1,4 @@
-PyJWT<2.0.0,>=1.7.1
+PyJWT==2.3.0
 certifi
 paramiko
 python-dateutil

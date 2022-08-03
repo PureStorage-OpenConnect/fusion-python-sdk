@@ -80,7 +80,7 @@ class HostAccessPoliciesPost(ResourcePost):
     def personality(self):
         """Gets the personality of this HostAccessPoliciesPost.  # noqa: E501
 
-        The Personality of the Host machine  # noqa: E501
+        The Personality of the Host machine, supported personality: windows, linux, esxi, oracle-vm-server. coming personality: aix, hitachi-vsp, hpux, solaris, vms  # noqa: E501
 
         :return: The personality of this HostAccessPoliciesPost.  # noqa: E501
         :rtype: str
@@ -91,14 +91,14 @@ class HostAccessPoliciesPost(ResourcePost):
     def personality(self, personality):
         """Sets the personality of this HostAccessPoliciesPost.
 
-        The Personality of the Host machine  # noqa: E501
+        The Personality of the Host machine, supported personality: windows, linux, esxi, oracle-vm-server. coming personality: aix, hitachi-vsp, hpux, solaris, vms  # noqa: E501
 
         :param personality: The personality of this HostAccessPoliciesPost.  # noqa: E501
         :type: str
         """
         if personality is None:
             raise ValueError("Invalid value for `personality`, must not be `None`")  # noqa: E501
-        allowed_values = ["windows", "linux", "aix", "esxi", "hitachi-vsp", "hpux", "oracle-vm-server", "solaris", "vms"]  # noqa: E501
+        allowed_values = ["windows", "linux", "esxi", "oracle-vm-server", "aix", "hitachi-vsp", "hpux", "solaris", "vms"]  # noqa: E501
         if personality not in allowed_values:
             raise ValueError(
                 "Invalid value for `personality` ({0}), must be one of {1}"  # noqa: E501

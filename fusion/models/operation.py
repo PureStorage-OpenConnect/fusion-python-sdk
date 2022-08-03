@@ -357,7 +357,7 @@ class Operation(object):
     def created_at(self):
         """Gets the created_at of this Operation.  # noqa: E501
 
-        The time the operation was created, in milliseconds since the Unix.  # noqa: E501
+        The time that the operation was created, in milliseconds since the Unix.  # noqa: E501
 
         :return: The created_at of this Operation.  # noqa: E501
         :rtype: int
@@ -368,7 +368,7 @@ class Operation(object):
     def created_at(self, created_at):
         """Sets the created_at of this Operation.
 
-        The time the operation was created, in milliseconds since the Unix.  # noqa: E501
+        The time that the operation was created, in milliseconds since the Unix.  # noqa: E501
 
         :param created_at: The created_at of this Operation.  # noqa: E501
         :type: int

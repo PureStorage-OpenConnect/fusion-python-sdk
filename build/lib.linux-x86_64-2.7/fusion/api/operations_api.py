@@ -262,6 +262,10 @@ class OperationsApi(object):
         :param str status: The status of the Operation.
         :param bool error: Whether to return Operations which had errors.
         :param str attributes:
+        :param str sort:
+        :param int limit:
+        :param int offset:
+        :param str created_after:
         :return: OperationList
                  If the method is called asynchronously,
                  returns the request thread.
@@ -293,12 +297,16 @@ class OperationsApi(object):
         :param str status: The status of the Operation.
         :param bool error: Whether to return Operations which had errors.
         :param str attributes:
+        :param str sort:
+        :param int limit:
+        :param int offset:
+        :param str created_after:
         :return: OperationList
                  If the method is called asynchronously,
                  returns the request thread.
         """
 
-        all_params = ['x_request_id', 'authorization', 'x_correlation_id', 'action', 'request_id', 'request_collection', 'resource_kind', 'resource_id', 'status', 'error', 'attributes']  # noqa: E501
+        all_params = ['x_request_id', 'authorization', 'x_correlation_id', 'action', 'request_id', 'request_collection', 'resource_kind', 'resource_id', 'status', 'error', 'attributes', 'sort', 'limit', 'offset', 'created_after']  # noqa: E501
         all_params.append('async_req')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
@@ -335,6 +343,14 @@ class OperationsApi(object):
             query_params.append(('error', params['error']))  # noqa: E501
         if 'attributes' in params:
             query_params.append(('attributes', params['attributes']))  # noqa: E501
+        if 'sort' in params:
+            query_params.append(('sort', params['sort']))  # noqa: E501
+        if 'limit' in params:
+            query_params.append(('limit', params['limit']))  # noqa: E501
+        if 'offset' in params:
+            query_params.append(('offset', params['offset']))  # noqa: E501
+        if 'created_after' in params:
+            query_params.append(('created_after', params['created_after']))  # noqa: E501
 
         header_params = {}
         if 'x_request_id' in params:

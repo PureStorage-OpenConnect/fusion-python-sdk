@@ -29,45 +29,45 @@ class PlacementGroupPatch(ResourcePatch):
                             and the value is json key in definition.
     """
     swagger_types = {
-        'hm_array': 'NullableString'
+        'array': 'NullableString'
     }
     if hasattr(ResourcePatch, "swagger_types"):
         swagger_types.update(ResourcePatch.swagger_types)
 
     attribute_map = {
-        'hm_array': 'hm_array'
+        'array': 'array'
     }
     if hasattr(ResourcePatch, "attribute_map"):
         attribute_map.update(ResourcePatch.attribute_map)
 
-    def __init__(self, hm_array=None, *args, **kwargs):  # noqa: E501
+    def __init__(self, array=None, *args, **kwargs):  # noqa: E501
         """PlacementGroupPatch - a model defined in Swagger"""  # noqa: E501
-        self._hm_array = None
+        self._array = None
         self.discriminator = None
-        if hm_array is not None:
-            self.hm_array = hm_array
+        if array is not None:
+            self.array = array
         ResourcePatch.__init__(self, *args, **kwargs)
 
     @property
-    def hm_array(self):
-        """Gets the hm_array of this PlacementGroupPatch.  # noqa: E501
+    def array(self):
+        """Gets the array of this PlacementGroupPatch.  # noqa: E501
 
 
-        :return: The hm_array of this PlacementGroupPatch.  # noqa: E501
+        :return: The array of this PlacementGroupPatch.  # noqa: E501
         :rtype: NullableString
         """
-        return self._hm_array
+        return self._array
 
-    @hm_array.setter
-    def hm_array(self, hm_array):
-        """Sets the hm_array of this PlacementGroupPatch.
+    @array.setter
+    def array(self, array):
+        """Sets the array of this PlacementGroupPatch.
 
 
-        :param hm_array: The hm_array of this PlacementGroupPatch.  # noqa: E501
+        :param array: The array of this PlacementGroupPatch.  # noqa: E501
         :type: NullableString
         """
 
-        self._hm_array = hm_array
+        self._array = array
 
     def to_dict(self):
         """Returns the model properties as a dict"""

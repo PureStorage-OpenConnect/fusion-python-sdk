@@ -29,7 +29,6 @@ class PlacementGroupPost(ResourcePost):
                             and the value is json key in definition.
     """
     swagger_types = {
-        'placement_engine': 'PlacementEngine',
         'availability_zone': 'str',
         'region': 'str',
         'storage_service': 'str'
@@ -38,7 +37,6 @@ class PlacementGroupPost(ResourcePost):
         swagger_types.update(ResourcePost.swagger_types)
 
     attribute_map = {
-        'placement_engine': 'placement_engine',
         'availability_zone': 'availability_zone',
         'region': 'region',
         'storage_service': 'storage_service'
@@ -46,40 +44,16 @@ class PlacementGroupPost(ResourcePost):
     if hasattr(ResourcePost, "attribute_map"):
         attribute_map.update(ResourcePost.attribute_map)
 
-    def __init__(self, placement_engine=None, availability_zone=None, region=None, storage_service=None, *args, **kwargs):  # noqa: E501
+    def __init__(self, availability_zone=None, region=None, storage_service=None, *args, **kwargs):  # noqa: E501
         """PlacementGroupPost - a model defined in Swagger"""  # noqa: E501
-        self._placement_engine = None
         self._availability_zone = None
         self._region = None
         self._storage_service = None
         self.discriminator = None
-        if placement_engine is not None:
-            self.placement_engine = placement_engine
         self.availability_zone = availability_zone
         self.region = region
         self.storage_service = storage_service
         ResourcePost.__init__(self, *args, **kwargs)
-
-    @property
-    def placement_engine(self):
-        """Gets the placement_engine of this PlacementGroupPost.  # noqa: E501
-
-
-        :return: The placement_engine of this PlacementGroupPost.  # noqa: E501
-        :rtype: PlacementEngine
-        """
-        return self._placement_engine
-
-    @placement_engine.setter
-    def placement_engine(self, placement_engine):
-        """Sets the placement_engine of this PlacementGroupPost.
-
-
-        :param placement_engine: The placement_engine of this PlacementGroupPost.  # noqa: E501
-        :type: PlacementEngine
-        """
-
-        self._placement_engine = placement_engine
 
     @property
     def availability_zone(self):
