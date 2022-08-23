@@ -14,7 +14,7 @@ Name | Type | Description | Notes
 **status** | **str** | The latest status of the operation indicates if it is waiting (Pending), active (Running, Aborting) or complete (Succeeded, Failed). | 
 **retry_in** | **int** | Recommended time to wait before getting the operation again to observe status change (polling interval). Unit is milliseconds, e.g., 100. | 
 **error** | [**Error**](Error.md) |  | [optional] 
-**created_at** | **int** | The time that the operation was created, in milliseconds since the Unix. | 
+**created_at** | **int** | The time that the operation was created, in milliseconds since the Unix epoch. | 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

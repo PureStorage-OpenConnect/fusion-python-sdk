@@ -121,7 +121,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **list_operations**
-> OperationList list_operations(x_request_id=x_request_id, authorization=authorization, x_correlation_id=x_correlation_id, action=action, request_id=request_id, request_collection=request_collection, resource_kind=resource_kind, resource_id=resource_id, status=status, error=error, attributes=attributes, sort=sort, limit=limit, offset=offset, created_after=created_after)
+> OperationList list_operations(x_request_id=x_request_id, authorization=authorization, x_correlation_id=x_correlation_id, action=action, request_id=request_id, request_collection=request_collection, resource_kind=resource_kind, resource_id=resource_id, status=status, sort=sort, limit=limit, offset=offset, created_after=created_after)
 
 Gets a list of Operations matching the criteria.
 
@@ -148,8 +148,6 @@ request_collection = 'request_collection_example' # str | Default to \\\"/\\\", 
 resource_kind = 'resource_kind_example' # str | The kind of resource on which the Operation was performed. (optional)
 resource_id = 'resource_id_example' # str | The ID of resource on which the Operation was performed. (optional)
 status = 'status_example' # str | The status of the Operation. (optional)
-error = true # bool | Whether to return Operations which had errors. (optional)
-attributes = 'attributes_example' # str |  (optional)
 sort = 'sort_example' # str |  (optional)
 limit = 56 # int |  (optional)
 offset = 56 # int |  (optional)
@@ -157,7 +155,7 @@ created_after = 'created_after_example' # str |  (optional)
 
 try:
     # Gets a list of Operations matching the criteria.
-    api_response = api_instance.list_operations(x_request_id=x_request_id, authorization=authorization, x_correlation_id=x_correlation_id, action=action, request_id=request_id, request_collection=request_collection, resource_kind=resource_kind, resource_id=resource_id, status=status, error=error, attributes=attributes, sort=sort, limit=limit, offset=offset, created_after=created_after)
+    api_response = api_instance.list_operations(x_request_id=x_request_id, authorization=authorization, x_correlation_id=x_correlation_id, action=action, request_id=request_id, request_collection=request_collection, resource_kind=resource_kind, resource_id=resource_id, status=status, sort=sort, limit=limit, offset=offset, created_after=created_after)
     pprint(api_response)
 except ApiException as e:
     print("Exception when calling OperationsApi->list_operations: %s\n" % e)
@@ -176,8 +174,6 @@ Name | Type | Description  | Notes
  **resource_kind** | **str**| The kind of resource on which the Operation was performed. | [optional] 
  **resource_id** | **str**| The ID of resource on which the Operation was performed. | [optional] 
  **status** | **str**| The status of the Operation. | [optional] 
- **error** | **bool**| Whether to return Operations which had errors. | [optional] 
- **attributes** | **str**|  | [optional] 
  **sort** | **str**|  | [optional] 
  **limit** | **int**|  | [optional] 
  **offset** | **int**|  | [optional] 
