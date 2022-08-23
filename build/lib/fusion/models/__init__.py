@@ -85,6 +85,8 @@ from fusion.models.pure1_meta_value_confidence_interval import Pure1MetaValueCon
 from fusion.models.rpo import RPO
 from fusion.models.region import Region
 from fusion.models.region_list import RegionList
+from fusion.models.region_patch import RegionPatch
+from fusion.models.region_post import RegionPost
 from fusion.models.region_ref import RegionRef
 from fusion.models.resource_metadata import ResourceMetadata
 from fusion.models.resource_patch import ResourcePatch
@@ -99,6 +101,8 @@ from fusion.models.role_ref import RoleRef
 from fusion.models.session import Session
 from fusion.models.session_iscsi import SessionIscsi
 from fusion.models.session_list import SessionList
+from fusion.models.simulated_placement import SimulatedPlacement
+from fusion.models.simulated_placement_post import SimulatedPlacementPost
 from fusion.models.snapshot import Snapshot
 from fusion.models.snapshot_list import SnapshotList
 from fusion.models.snapshot_patch import SnapshotPatch

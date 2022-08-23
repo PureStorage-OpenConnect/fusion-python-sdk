@@ -13,7 +13,7 @@
 from setuptools import setup, find_packages  # noqa: H301
 
 NAME = "purefusion"
-VERSION = "1.0.3"
+VERSION = "1.0.4"
 # To install the library, run the following
 #
 # python setup.py install
@@ -34,6 +34,6 @@ setup(
     packages=find_packages(),
     include_package_data=True,
     long_description="""\
-    Pure Fusion is fully API-driven. Most APIs which change the system (POST, PATCH, DELETE) return an Operation in status 'Pending' or 'Running';. You can poll (GET) the operation to check its status, waiting for it to change to 'Succeeded' or 'Failed'.
+    Pure Fusion is fully API-driven. Most APIs which change the system (POST, PATCH, DELETE) return an Operation in status \&quot;Pending\&quot; or \&quot;Running\&quot;. You can poll (GET) the operation to check its status, waiting for it to change to \&quot;Succeeded\&quot; or \&quot;Failed\&quot;.   # noqa: E501
     """
 )

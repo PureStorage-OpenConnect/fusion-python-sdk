@@ -30,23 +30,27 @@ class ResourceReference(object):
     swagger_types = {
         'id': 'str',
         'name': 'str',
+        'kind': 'str',
         'self_link': 'str'
     }
 
     attribute_map = {
         'id': 'id',
         'name': 'name',
+        'kind': 'kind',
         'self_link': 'self_link'
     }
 
-    def __init__(self, id=None, name=None, self_link=None):  # noqa: E501
+    def __init__(self, id=None, name=None, kind=None, self_link=None):  # noqa: E501
         """ResourceReference - a model defined in Swagger"""  # noqa: E501
         self._id = None
         self._name = None
+        self._kind = None
         self._self_link = None
         self.discriminator = None
         self.id = id
         self.name = name
+        self.kind = kind
         self.self_link = self_link
 
     @property
@@ -98,6 +102,31 @@ class ResourceReference(object):
             raise ValueError("Invalid value for `name`, must not be `None`")  # noqa: E501
 
         self._name = name
+
+    @property
+    def kind(self):
+        """Gets the kind of this ResourceReference.  # noqa: E501
+
+        The kind of the resource (e.g., Volume).  # noqa: E501
+
+        :return: The kind of this ResourceReference.  # noqa: E501
+        :rtype: str
+        """
+        return self._kind
+
+    @kind.setter
+    def kind(self, kind):
+        """Sets the kind of this ResourceReference.
+
+        The kind of the resource (e.g., Volume).  # noqa: E501
+
+        :param kind: The kind of this ResourceReference.  # noqa: E501
+        :type: str
+        """
+        if kind is None:
+            raise ValueError("Invalid value for `kind`, must not be `None`")  # noqa: E501
+
+        self._kind = kind
 
     @property
     def self_link(self):
