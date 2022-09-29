@@ -35,6 +35,13 @@ class TestProtectionPoliciesApi(unittest.TestCase):
         """
         pass
 
+    def test_delete_protection_policy(self):
+        """Test case for delete_protection_policy
+
+        Deletes a specific protection policy.  # noqa: E501
+        """
+        pass
+
     def test_get_protection_policy(self):
         """Test case for get_protection_policy
 

@@ -77,6 +77,13 @@ class TestVolumesApi(unittest.TestCase):
         """
         pass
 
+    def test_query_volumes(self):
+        """Test case for query_volumes
+
+        (Opt-in) Get all Volumes in the org. Provide a filter to search for specific volumes.  # noqa: E501
+        """
+        pass
+
     def test_update_volume(self):
         """Test case for update_volume
 

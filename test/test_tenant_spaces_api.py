@@ -77,6 +77,13 @@ class TestTenantSpacesApi(unittest.TestCase):
         """
         pass
 
+    def test_query_tenant_spaces(self):
+        """Test case for query_tenant_spaces
+
+        (Opt-in) Get all Tenant Spaces in the org. Provide a filter to search for specific Tenant Spaces  # noqa: E501
+        """
+        pass
+
     def test_update_tenant_space(self):
         """Test case for update_tenant_space
 

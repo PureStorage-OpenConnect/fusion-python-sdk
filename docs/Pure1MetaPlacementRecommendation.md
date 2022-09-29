@@ -10,7 +10,7 @@ Name | Type | Description | Notes
 **days_to_reach_90_percent_capacity** | **float** |  | [optional] 
 **days_to_reach_100_percent_capacity** | **float** |  | [optional] 
 **error** | **str** |  | [optional] 
-**warnings** | **list[str]** |  | [optional] 
+**warnings** | [**list[Pure1MetaWarning]**](Pure1MetaWarning.md) |  | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

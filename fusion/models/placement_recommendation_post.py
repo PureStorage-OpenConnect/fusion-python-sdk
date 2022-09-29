@@ -30,33 +30,52 @@ class PlacementRecommendationPost(ResourcePost):
     """
     swagger_types = {
         'placement_group_link': 'str',
-        'placement_engine': 'PlacementEngine'
+        'placement_group': 'str',
+        'tenant': 'str',
+        'tenant_space': 'str',
+        'placement_engine': 'PlacementEngine',
+        'simulated_placement': 'SimulatedPlacementPost'
     }
     if hasattr(ResourcePost, "swagger_types"):
         swagger_types.update(ResourcePost.swagger_types)
 
     attribute_map = {
         'placement_group_link': 'placement_group_link',
-        'placement_engine': 'placement_engine'
+        'placement_group': 'placement_group',
+        'tenant': 'tenant',
+        'tenant_space': 'tenant_space',
+        'placement_engine': 'placement_engine',
+        'simulated_placement': 'simulated_placement'
     }
     if hasattr(ResourcePost, "attribute_map"):
         attribute_map.update(ResourcePost.attribute_map)
 
-    def __init__(self, placement_group_link=None, placement_engine=None, *args, **kwargs):  # noqa: E501
+    def __init__(self, placement_group_link=None, placement_group=None, tenant=None, tenant_space=None, placement_engine=None, simulated_placement=None, *args, **kwargs):  # noqa: E501
         """PlacementRecommendationPost - a model defined in Swagger"""  # noqa: E501
         self._placement_group_link = None
+        self._placement_group = None
+        self._tenant = None
+        self._tenant_space = None
         self._placement_engine = None
+        self._simulated_placement = None
         self.discriminator = None
-        self.placement_group_link = placement_group_link
+        if placement_group_link is not None:
+            self.placement_group_link = placement_group_link
+        if placement_group is not None:
+            self.placement_group = placement_group
+        self.tenant = tenant
+        self.tenant_space = tenant_space
         if placement_engine is not None:
             self.placement_engine = placement_engine
+        if simulated_placement is not None:
+            self.simulated_placement = simulated_placement
         ResourcePost.__init__(self, *args, **kwargs)
 
     @property
     def placement_group_link(self):
         """Gets the placement_group_link of this PlacementRecommendationPost.  # noqa: E501
 
-        The link to the placement group that we would like to generate a placement recommendation report on  # noqa: E501
+        Deprecated. Use placement_group instead. The link to the placement group that we would like to generate a placement recommendation report on  # noqa: E501
 
         :return: The placement_group_link of this PlacementRecommendationPost.  # noqa: E501
         :rtype: str
@@ -67,15 +86,86 @@ class PlacementRecommendationPost(ResourcePost):
     def placement_group_link(self, placement_group_link):
         """Sets the placement_group_link of this PlacementRecommendationPost.
 
-        The link to the placement group that we would like to generate a placement recommendation report on  # noqa: E501
+        Deprecated. Use placement_group instead. The link to the placement group that we would like to generate a placement recommendation report on  # noqa: E501
 
         :param placement_group_link: The placement_group_link of this PlacementRecommendationPost.  # noqa: E501
         :type: str
         """
-        if placement_group_link is None:
-            raise ValueError("Invalid value for `placement_group_link`, must not be `None`")  # noqa: E501
 
         self._placement_group_link = placement_group_link
+
+    @property
+    def placement_group(self):
+        """Gets the placement_group of this PlacementRecommendationPost.  # noqa: E501
+
+        Placement Group you would like to generate a placement recommendation report on. For placement of new placement group, leave this blank, and instead fill in simulated_placement  # noqa: E501
+
+        :return: The placement_group of this PlacementRecommendationPost.  # noqa: E501
+        :rtype: str
+        """
+        return self._placement_group
+
+    @placement_group.setter
+    def placement_group(self, placement_group):
+        """Sets the placement_group of this PlacementRecommendationPost.
+
+        Placement Group you would like to generate a placement recommendation report on. For placement of new placement group, leave this blank, and instead fill in simulated_placement  # noqa: E501
+
+        :param placement_group: The placement_group of this PlacementRecommendationPost.  # noqa: E501
+        :type: str
+        """
+
+        self._placement_group = placement_group
+
+    @property
+    def tenant(self):
+        """Gets the tenant of this PlacementRecommendationPost.  # noqa: E501
+
+        Tenant that Placement Group belongs to. For placement of new placement group, enter Tenant where the Placement Group would have been created in  # noqa: E501
+
+        :return: The tenant of this PlacementRecommendationPost.  # noqa: E501
+        :rtype: str
+        """
+        return self._tenant
+
+    @tenant.setter
+    def tenant(self, tenant):
+        """Sets the tenant of this PlacementRecommendationPost.
+
+        Tenant that Placement Group belongs to. For placement of new placement group, enter Tenant where the Placement Group would have been created in  # noqa: E501
+
+        :param tenant: The tenant of this PlacementRecommendationPost.  # noqa: E501
+        :type: str
+        """
+        if tenant is None:
+            raise ValueError("Invalid value for `tenant`, must not be `None`")  # noqa: E501
+
+        self._tenant = tenant
+
+    @property
+    def tenant_space(self):
+        """Gets the tenant_space of this PlacementRecommendationPost.  # noqa: E501
+
+        Tenant Space that Placement Group belongs to. For placement of new placement group, enter TenantSpace where Placement Group would have been created in  # noqa: E501
+
+        :return: The tenant_space of this PlacementRecommendationPost.  # noqa: E501
+        :rtype: str
+        """
+        return self._tenant_space
+
+    @tenant_space.setter
+    def tenant_space(self, tenant_space):
+        """Sets the tenant_space of this PlacementRecommendationPost.
+
+        Tenant Space that Placement Group belongs to. For placement of new placement group, enter TenantSpace where Placement Group would have been created in  # noqa: E501
+
+        :param tenant_space: The tenant_space of this PlacementRecommendationPost.  # noqa: E501
+        :type: str
+        """
+        if tenant_space is None:
+            raise ValueError("Invalid value for `tenant_space`, must not be `None`")  # noqa: E501
+
+        self._tenant_space = tenant_space
 
     @property
     def placement_engine(self):
@@ -97,6 +187,27 @@ class PlacementRecommendationPost(ResourcePost):
         """
 
         self._placement_engine = placement_engine
+
+    @property
+    def simulated_placement(self):
+        """Gets the simulated_placement of this PlacementRecommendationPost.  # noqa: E501
+
+
+        :return: The simulated_placement of this PlacementRecommendationPost.  # noqa: E501
+        :rtype: SimulatedPlacementPost
+        """
+        return self._simulated_placement
+
+    @simulated_placement.setter
+    def simulated_placement(self, simulated_placement):
+        """Sets the simulated_placement of this PlacementRecommendationPost.
+
+
+        :param simulated_placement: The simulated_placement of this PlacementRecommendationPost.  # noqa: E501
+        :type: SimulatedPlacementPost
+        """
+
+        self._simulated_placement = simulated_placement
 
     def to_dict(self):
         """Returns the model properties as a dict"""
