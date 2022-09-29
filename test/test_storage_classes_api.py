@@ -35,6 +35,13 @@ class TestStorageClassesApi(unittest.TestCase):
         """
         pass
 
+    def test_delete_storage_class(self):
+        """Test case for delete_storage_class
+
+        Deletes a Storage Class.  # noqa: E501
+        """
+        pass
+
     def test_get_storage_class(self):
         """Test case for get_storage_class
 

@@ -260,10 +260,11 @@ class OperationsApi(object):
         :param str resource_kind: The kind of resource on which the Operation was performed.
         :param str resource_id: The ID of resource on which the Operation was performed.
         :param str status: The status of the Operation.
-        :param str sort:
+        :param str created_after:
+        :param str filter: filter should use expression language for filtering
+        :param str sort: Returns the response items in the order specified. Set sort to the field(s) in the response by which to sort. Sorting can be performed on any of the fields in the response, and the items can be sorted in ascending or descending order by these fields. By default, the response items are sorted in ascending order. To sort in descending order, append the minus sign (-) to the field. A single request can be sorted on multiple fields. For example, you can sort all volumes from largest to smallest volume size, and then sort volumes of the same size in ascending order by volume name. To sort on multiple fields, list the fields as comma-separated values. (E.g. \"sort=size-,name\")
         :param int limit:
         :param int offset:
-        :param str created_after:
         :return: OperationList
                  If the method is called asynchronously,
                  returns the request thread.
@@ -293,16 +294,17 @@ class OperationsApi(object):
         :param str resource_kind: The kind of resource on which the Operation was performed.
         :param str resource_id: The ID of resource on which the Operation was performed.
         :param str status: The status of the Operation.
-        :param str sort:
+        :param str created_after:
+        :param str filter: filter should use expression language for filtering
+        :param str sort: Returns the response items in the order specified. Set sort to the field(s) in the response by which to sort. Sorting can be performed on any of the fields in the response, and the items can be sorted in ascending or descending order by these fields. By default, the response items are sorted in ascending order. To sort in descending order, append the minus sign (-) to the field. A single request can be sorted on multiple fields. For example, you can sort all volumes from largest to smallest volume size, and then sort volumes of the same size in ascending order by volume name. To sort on multiple fields, list the fields as comma-separated values. (E.g. \"sort=size-,name\")
         :param int limit:
         :param int offset:
-        :param str created_after:
         :return: OperationList
                  If the method is called asynchronously,
                  returns the request thread.
         """
 
-        all_params = ['x_request_id', 'authorization', 'x_correlation_id', 'action', 'request_id', 'request_collection', 'resource_kind', 'resource_id', 'status', 'sort', 'limit', 'offset', 'created_after']  # noqa: E501
+        all_params = ['x_request_id', 'authorization', 'x_correlation_id', 'action', 'request_id', 'request_collection', 'resource_kind', 'resource_id', 'status', 'created_after', 'filter', 'sort', 'limit', 'offset']  # noqa: E501
         all_params.append('async_req')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
@@ -335,14 +337,16 @@ class OperationsApi(object):
             query_params.append(('resource_id', params['resource_id']))  # noqa: E501
         if 'status' in params:
             query_params.append(('status', params['status']))  # noqa: E501
+        if 'created_after' in params:
+            query_params.append(('created_after', params['created_after']))  # noqa: E501
+        if 'filter' in params:
+            query_params.append(('filter', params['filter']))  # noqa: E501
         if 'sort' in params:
             query_params.append(('sort', params['sort']))  # noqa: E501
         if 'limit' in params:
             query_params.append(('limit', params['limit']))  # noqa: E501
         if 'offset' in params:
             query_params.append(('offset', params['offset']))  # noqa: E501
-        if 'created_after' in params:
-            query_params.append(('created_after', params['created_after']))  # noqa: E501
 
         header_params = {}
         if 'x_request_id' in params:

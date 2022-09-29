@@ -51,7 +51,7 @@ class RPO(ProtectionPolicyObjectiveType):
     def rpo(self):
         """Gets the rpo of this RPO.  # noqa: E501
 
-        RPO objective value in seconds. Format: https://en.wikipedia.org/wiki/ISO_8601  # noqa: E501
+        RPO (Recovery Point Objective) value. Format: only support subset of **Durations** format in https://en.wikipedia.org/wiki/ISO_8601. 1. The time designators(P,T,H,M,S) must be capital letters.  2. Only accepts whole numbers.  3. Leading zeroes are not required.  # noqa: E501
 
         :return: The rpo of this RPO.  # noqa: E501
         :rtype: str
@@ -62,7 +62,7 @@ class RPO(ProtectionPolicyObjectiveType):
     def rpo(self, rpo):
         """Sets the rpo of this RPO.
 
-        RPO objective value in seconds. Format: https://en.wikipedia.org/wiki/ISO_8601  # noqa: E501
+        RPO (Recovery Point Objective) value. Format: only support subset of **Durations** format in https://en.wikipedia.org/wiki/ISO_8601. 1. The time designators(P,T,H,M,S) must be capital letters.  2. Only accepts whole numbers.  3. Leading zeroes are not required.  # noqa: E501
 
         :param rpo: The rpo of this RPO.  # noqa: E501
         :type: str

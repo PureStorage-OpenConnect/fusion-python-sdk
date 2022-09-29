@@ -1,3 +1,4 @@
+LICENSE
 README.md
 setup.py
 fusion/__init__.py
@@ -97,8 +98,11 @@ fusion/models/pure1_meta_placement_recommendation_load_values.py
 fusion/models/pure1_meta_placement_recommendation_objectives.py
 fusion/models/pure1_meta_value.py
 fusion/models/pure1_meta_value_confidence_interval.py
+fusion/models/pure1_meta_warning.py
 fusion/models/region.py
 fusion/models/region_list.py
+fusion/models/region_patch.py
+fusion/models/region_post.py
 fusion/models/region_ref.py
 fusion/models/resource_metadata.py
 fusion/models/resource_patch.py
@@ -114,6 +118,8 @@ fusion/models/rpo.py
 fusion/models/session.py
 fusion/models/session_iscsi.py
 fusion/models/session_list.py
+fusion/models/simulated_placement.py
+fusion/models/simulated_placement_post.py
 fusion/models/snapshot.py
 fusion/models/snapshot_list.py
 fusion/models/snapshot_patch.py
@@ -253,8 +259,11 @@ test/test_pure1_meta_placement_recommendation_load_values.py
 test/test_pure1_meta_placement_recommendation_objectives.py
 test/test_pure1_meta_value.py
 test/test_pure1_meta_value_confidence_interval.py
+test/test_pure1_meta_warning.py
 test/test_region.py
 test/test_region_list.py
+test/test_region_patch.py
+test/test_region_post.py
 test/test_region_ref.py
 test/test_regions_api.py
 test/test_resource_metadata.py
@@ -273,6 +282,8 @@ test/test_rpo.py
 test/test_session.py
 test/test_session_iscsi.py
 test/test_session_list.py
+test/test_simulated_placement.py
+test/test_simulated_placement_post.py
 test/test_snapshot.py
 test/test_snapshot_list.py
 test/test_snapshot_patch.py

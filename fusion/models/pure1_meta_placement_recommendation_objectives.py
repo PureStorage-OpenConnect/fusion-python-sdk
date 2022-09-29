@@ -28,170 +28,170 @@ class Pure1MetaPlacementRecommendationObjectives(object):
                             and the value is json key in definition.
     """
     swagger_types = {
-        'avg_perf': 'float',
-        'avg_cap': 'float',
-        'var_perf': 'float',
-        'var_cap': 'float',
-        'max_perf': 'float',
-        'max_cap': 'float'
+        'avg_perf_usage': 'float',
+        'avg_cap_usage': 'float',
+        'var_perf_usage': 'float',
+        'var_cap_usage': 'float',
+        'max_perf_usage': 'float',
+        'max_cap_usage': 'float'
     }
 
     attribute_map = {
-        'avg_perf': 'avg_perf',
-        'avg_cap': 'avg_cap',
-        'var_perf': 'var_perf',
-        'var_cap': 'var_cap',
-        'max_perf': 'max_perf',
-        'max_cap': 'max_cap'
+        'avg_perf_usage': 'avg_perf_usage',
+        'avg_cap_usage': 'avg_cap_usage',
+        'var_perf_usage': 'var_perf_usage',
+        'var_cap_usage': 'var_cap_usage',
+        'max_perf_usage': 'max_perf_usage',
+        'max_cap_usage': 'max_cap_usage'
     }
 
-    def __init__(self, avg_perf=None, avg_cap=None, var_perf=None, var_cap=None, max_perf=None, max_cap=None):  # noqa: E501
+    def __init__(self, avg_perf_usage=None, avg_cap_usage=None, var_perf_usage=None, var_cap_usage=None, max_perf_usage=None, max_cap_usage=None):  # noqa: E501
         """Pure1MetaPlacementRecommendationObjectives - a model defined in Swagger"""  # noqa: E501
-        self._avg_perf = None
-        self._avg_cap = None
-        self._var_perf = None
-        self._var_cap = None
-        self._max_perf = None
-        self._max_cap = None
+        self._avg_perf_usage = None
+        self._avg_cap_usage = None
+        self._var_perf_usage = None
+        self._var_cap_usage = None
+        self._max_perf_usage = None
+        self._max_cap_usage = None
         self.discriminator = None
-        if avg_perf is not None:
-            self.avg_perf = avg_perf
-        if avg_cap is not None:
-            self.avg_cap = avg_cap
-        if var_perf is not None:
-            self.var_perf = var_perf
-        if var_cap is not None:
-            self.var_cap = var_cap
-        if max_perf is not None:
-            self.max_perf = max_perf
-        if max_cap is not None:
-            self.max_cap = max_cap
+        if avg_perf_usage is not None:
+            self.avg_perf_usage = avg_perf_usage
+        if avg_cap_usage is not None:
+            self.avg_cap_usage = avg_cap_usage
+        if var_perf_usage is not None:
+            self.var_perf_usage = var_perf_usage
+        if var_cap_usage is not None:
+            self.var_cap_usage = var_cap_usage
+        if max_perf_usage is not None:
+            self.max_perf_usage = max_perf_usage
+        if max_cap_usage is not None:
+            self.max_cap_usage = max_cap_usage
 
     @property
-    def avg_perf(self):
-        """Gets the avg_perf of this Pure1MetaPlacementRecommendationObjectives.  # noqa: E501
+    def avg_perf_usage(self):
+        """Gets the avg_perf_usage of this Pure1MetaPlacementRecommendationObjectives.  # noqa: E501
 
 
-        :return: The avg_perf of this Pure1MetaPlacementRecommendationObjectives.  # noqa: E501
+        :return: The avg_perf_usage of this Pure1MetaPlacementRecommendationObjectives.  # noqa: E501
         :rtype: float
         """
-        return self._avg_perf
+        return self._avg_perf_usage
 
-    @avg_perf.setter
-    def avg_perf(self, avg_perf):
-        """Sets the avg_perf of this Pure1MetaPlacementRecommendationObjectives.
+    @avg_perf_usage.setter
+    def avg_perf_usage(self, avg_perf_usage):
+        """Sets the avg_perf_usage of this Pure1MetaPlacementRecommendationObjectives.
 
 
-        :param avg_perf: The avg_perf of this Pure1MetaPlacementRecommendationObjectives.  # noqa: E501
+        :param avg_perf_usage: The avg_perf_usage of this Pure1MetaPlacementRecommendationObjectives.  # noqa: E501
         :type: float
         """
 
-        self._avg_perf = avg_perf
+        self._avg_perf_usage = avg_perf_usage
 
     @property
-    def avg_cap(self):
-        """Gets the avg_cap of this Pure1MetaPlacementRecommendationObjectives.  # noqa: E501
+    def avg_cap_usage(self):
+        """Gets the avg_cap_usage of this Pure1MetaPlacementRecommendationObjectives.  # noqa: E501
 
 
-        :return: The avg_cap of this Pure1MetaPlacementRecommendationObjectives.  # noqa: E501
+        :return: The avg_cap_usage of this Pure1MetaPlacementRecommendationObjectives.  # noqa: E501
         :rtype: float
         """
-        return self._avg_cap
+        return self._avg_cap_usage
 
-    @avg_cap.setter
-    def avg_cap(self, avg_cap):
-        """Sets the avg_cap of this Pure1MetaPlacementRecommendationObjectives.
+    @avg_cap_usage.setter
+    def avg_cap_usage(self, avg_cap_usage):
+        """Sets the avg_cap_usage of this Pure1MetaPlacementRecommendationObjectives.
 
 
-        :param avg_cap: The avg_cap of this Pure1MetaPlacementRecommendationObjectives.  # noqa: E501
+        :param avg_cap_usage: The avg_cap_usage of this Pure1MetaPlacementRecommendationObjectives.  # noqa: E501
         :type: float
         """
 
-        self._avg_cap = avg_cap
+        self._avg_cap_usage = avg_cap_usage
 
     @property
-    def var_perf(self):
-        """Gets the var_perf of this Pure1MetaPlacementRecommendationObjectives.  # noqa: E501
+    def var_perf_usage(self):
+        """Gets the var_perf_usage of this Pure1MetaPlacementRecommendationObjectives.  # noqa: E501
 
 
-        :return: The var_perf of this Pure1MetaPlacementRecommendationObjectives.  # noqa: E501
+        :return: The var_perf_usage of this Pure1MetaPlacementRecommendationObjectives.  # noqa: E501
         :rtype: float
         """
-        return self._var_perf
+        return self._var_perf_usage
 
-    @var_perf.setter
-    def var_perf(self, var_perf):
-        """Sets the var_perf of this Pure1MetaPlacementRecommendationObjectives.
+    @var_perf_usage.setter
+    def var_perf_usage(self, var_perf_usage):
+        """Sets the var_perf_usage of this Pure1MetaPlacementRecommendationObjectives.
 
 
-        :param var_perf: The var_perf of this Pure1MetaPlacementRecommendationObjectives.  # noqa: E501
+        :param var_perf_usage: The var_perf_usage of this Pure1MetaPlacementRecommendationObjectives.  # noqa: E501
         :type: float
         """
 
-        self._var_perf = var_perf
+        self._var_perf_usage = var_perf_usage
 
     @property
-    def var_cap(self):
-        """Gets the var_cap of this Pure1MetaPlacementRecommendationObjectives.  # noqa: E501
+    def var_cap_usage(self):
+        """Gets the var_cap_usage of this Pure1MetaPlacementRecommendationObjectives.  # noqa: E501
 
 
-        :return: The var_cap of this Pure1MetaPlacementRecommendationObjectives.  # noqa: E501
+        :return: The var_cap_usage of this Pure1MetaPlacementRecommendationObjectives.  # noqa: E501
         :rtype: float
         """
-        return self._var_cap
+        return self._var_cap_usage
 
-    @var_cap.setter
-    def var_cap(self, var_cap):
-        """Sets the var_cap of this Pure1MetaPlacementRecommendationObjectives.
+    @var_cap_usage.setter
+    def var_cap_usage(self, var_cap_usage):
+        """Sets the var_cap_usage of this Pure1MetaPlacementRecommendationObjectives.
 
 
-        :param var_cap: The var_cap of this Pure1MetaPlacementRecommendationObjectives.  # noqa: E501
+        :param var_cap_usage: The var_cap_usage of this Pure1MetaPlacementRecommendationObjectives.  # noqa: E501
         :type: float
         """
 
-        self._var_cap = var_cap
+        self._var_cap_usage = var_cap_usage
 
     @property
-    def max_perf(self):
-        """Gets the max_perf of this Pure1MetaPlacementRecommendationObjectives.  # noqa: E501
+    def max_perf_usage(self):
+        """Gets the max_perf_usage of this Pure1MetaPlacementRecommendationObjectives.  # noqa: E501
 
 
-        :return: The max_perf of this Pure1MetaPlacementRecommendationObjectives.  # noqa: E501
+        :return: The max_perf_usage of this Pure1MetaPlacementRecommendationObjectives.  # noqa: E501
         :rtype: float
         """
-        return self._max_perf
+        return self._max_perf_usage
 
-    @max_perf.setter
-    def max_perf(self, max_perf):
-        """Sets the max_perf of this Pure1MetaPlacementRecommendationObjectives.
+    @max_perf_usage.setter
+    def max_perf_usage(self, max_perf_usage):
+        """Sets the max_perf_usage of this Pure1MetaPlacementRecommendationObjectives.
 
 
-        :param max_perf: The max_perf of this Pure1MetaPlacementRecommendationObjectives.  # noqa: E501
+        :param max_perf_usage: The max_perf_usage of this Pure1MetaPlacementRecommendationObjectives.  # noqa: E501
         :type: float
         """
 
-        self._max_perf = max_perf
+        self._max_perf_usage = max_perf_usage
 
     @property
-    def max_cap(self):
-        """Gets the max_cap of this Pure1MetaPlacementRecommendationObjectives.  # noqa: E501
+    def max_cap_usage(self):
+        """Gets the max_cap_usage of this Pure1MetaPlacementRecommendationObjectives.  # noqa: E501
 
 
-        :return: The max_cap of this Pure1MetaPlacementRecommendationObjectives.  # noqa: E501
+        :return: The max_cap_usage of this Pure1MetaPlacementRecommendationObjectives.  # noqa: E501
         :rtype: float
         """
-        return self._max_cap
+        return self._max_cap_usage
 
-    @max_cap.setter
-    def max_cap(self, max_cap):
-        """Sets the max_cap of this Pure1MetaPlacementRecommendationObjectives.
+    @max_cap_usage.setter
+    def max_cap_usage(self, max_cap_usage):
+        """Sets the max_cap_usage of this Pure1MetaPlacementRecommendationObjectives.
 
 
-        :param max_cap: The max_cap of this Pure1MetaPlacementRecommendationObjectives.  # noqa: E501
+        :param max_cap_usage: The max_cap_usage of this Pure1MetaPlacementRecommendationObjectives.  # noqa: E501
         :type: float
         """
 
-        self._max_cap = max_cap
+        self._max_cap_usage = max_cap_usage
 
     def to_dict(self):
         """Returns the model properties as a dict"""

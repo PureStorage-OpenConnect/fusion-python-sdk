@@ -35,7 +35,7 @@ class Pure1MetaPlacementRecommendation(object):
         'days_to_reach_90_percent_capacity': 'float',
         'days_to_reach_100_percent_capacity': 'float',
         'error': 'str',
-        'warnings': 'list[str]'
+        'warnings': 'list[Pure1MetaWarning]'
     }
 
     attribute_map = {
@@ -232,7 +232,7 @@ class Pure1MetaPlacementRecommendation(object):
 
 
         :return: The warnings of this Pure1MetaPlacementRecommendation.  # noqa: E501
-        :rtype: list[str]
+        :rtype: list[Pure1MetaWarning]
         """
         return self._warnings
 
@@ -242,7 +242,7 @@ class Pure1MetaPlacementRecommendation(object):
 
 
         :param warnings: The warnings of this Pure1MetaPlacementRecommendation.  # noqa: E501
-        :type: list[str]
+        :type: list[Pure1MetaWarning]
         """
 
         self._warnings = warnings

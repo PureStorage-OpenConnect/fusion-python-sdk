@@ -35,6 +35,13 @@ class TestStorageServicesApi(unittest.TestCase):
         """
         pass
 
+    def test_delete_storage_service(self):
+        """Test case for delete_storage_service
+
+        (Provider) Deletes a Storage Service.  # noqa: E501
+        """
+        pass
+
     def test_get_storage_service(self):
         """Test case for get_storage_service
 

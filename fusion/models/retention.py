@@ -51,7 +51,7 @@ class Retention(ProtectionPolicyObjectiveType):
     def after(self):
         """Gets the after of this Retention.  # noqa: E501
 
-        Retention period - after how long this retention objective will apply. Format: https://en.wikipedia.org/wiki/ISO_8601  # noqa: E501
+        Rentenion period: how long the snapshots will be retained.  Format: only support subset of **Durations** format in https://en.wikipedia.org/wiki/ISO_8601. 1. The time designators(P,T,H,M,S) must be capital letters.  2. Only accepts whole numbers.  3. Leading zeroes are not required.  # noqa: E501
 
         :return: The after of this Retention.  # noqa: E501
         :rtype: str
@@ -62,7 +62,7 @@ class Retention(ProtectionPolicyObjectiveType):
     def after(self, after):
         """Sets the after of this Retention.
 
-        Retention period - after how long this retention objective will apply. Format: https://en.wikipedia.org/wiki/ISO_8601  # noqa: E501
+        Rentenion period: how long the snapshots will be retained.  Format: only support subset of **Durations** format in https://en.wikipedia.org/wiki/ISO_8601. 1. The time designators(P,T,H,M,S) must be capital letters.  2. Only accepts whole numbers.  3. Leading zeroes are not required.  # noqa: E501
 
         :param after: The after of this Retention.  # noqa: E501
         :type: str

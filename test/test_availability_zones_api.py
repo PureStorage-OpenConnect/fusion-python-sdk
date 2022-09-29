@@ -35,6 +35,13 @@ class TestAvailabilityZonesApi(unittest.TestCase):
         """
         pass
 
+    def test_delete_availability_zone(self):
+        """Test case for delete_availability_zone
+
+        Deletes a specific Availability Zone.  # noqa: E501
+        """
+        pass
+
     def test_get_availability_zone(self):
         """Test case for get_availability_zone
 

@@ -82,6 +82,7 @@ from fusion.models.pure1_meta_placement_recommendation_load_values import Pure1M
 from fusion.models.pure1_meta_placement_recommendation_objectives import Pure1MetaPlacementRecommendationObjectives
 from fusion.models.pure1_meta_value import Pure1MetaValue
 from fusion.models.pure1_meta_value_confidence_interval import Pure1MetaValueConfidenceInterval
+from fusion.models.pure1_meta_warning import Pure1MetaWarning
 from fusion.models.rpo import RPO
 from fusion.models.region import Region
 from fusion.models.region_list import RegionList

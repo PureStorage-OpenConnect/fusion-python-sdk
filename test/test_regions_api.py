@@ -28,6 +28,20 @@ class TestRegionsApi(unittest.TestCase):
     def tearDown(self):
         pass
 
+    def test_create_region(self):
+        """Test case for create_region
+
+        Creates a Region.  # noqa: E501
+        """
+        pass
+
+    def test_delete_region(self):
+        """Test case for delete_region
+
+        Deletes a specific Region.  # noqa: E501
+        """
+        pass
+
     def test_get_region(self):
         """Test case for get_region
 
@@ -46,6 +60,13 @@ class TestRegionsApi(unittest.TestCase):
         """Test case for list_regions
 
         Gets a list of all Regions.  # noqa: E501
+        """
+        pass
+
+    def test_update_region(self):
+        """Test case for update_region
+
+        Updates a Region.  # noqa: E501
         """
         pass
 
