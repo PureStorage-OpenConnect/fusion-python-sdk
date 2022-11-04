@@ -33,7 +33,7 @@ class VolumePost(ResourcePost):
         'storage_class': 'str',
         'placement_group': 'str',
         'protection_policy': 'str',
-        'source_volume_snapshot_link': 'str'
+        'source_link': 'str'
     }
     if hasattr(ResourcePost, "swagger_types"):
         swagger_types.update(ResourcePost.swagger_types)
@@ -43,26 +43,27 @@ class VolumePost(ResourcePost):
         'storage_class': 'storage_class',
         'placement_group': 'placement_group',
         'protection_policy': 'protection_policy',
-        'source_volume_snapshot_link': 'source_volume_snapshot_link'
+        'source_link': 'source_link'
     }
     if hasattr(ResourcePost, "attribute_map"):
         attribute_map.update(ResourcePost.attribute_map)
 
-    def __init__(self, size=None, storage_class=None, placement_group=None, protection_policy=None, source_volume_snapshot_link=None, *args, **kwargs):  # noqa: E501
+    def __init__(self, size=None, storage_class=None, placement_group=None, protection_policy=None, source_link=None, *args, **kwargs):  # noqa: E501
         """VolumePost - a model defined in Swagger"""  # noqa: E501
         self._size = None
         self._storage_class = None
         self._placement_group = None
         self._protection_policy = None
-        self._source_volume_snapshot_link = None
+        self._source_link = None
         self.discriminator = None
-        self.size = size
+        if size is not None:
+            self.size = size
         self.storage_class = storage_class
         self.placement_group = placement_group
         if protection_policy is not None:
             self.protection_policy = protection_policy
-        if source_volume_snapshot_link is not None:
-            self.source_volume_snapshot_link = source_volume_snapshot_link
+        if source_link is not None:
+            self.source_link = source_link
         ResourcePost.__init__(self, *args, **kwargs)
 
     @property
@@ -85,8 +86,6 @@ class VolumePost(ResourcePost):
         :param size: The size of this VolumePost.  # noqa: E501
         :type: int
         """
-        if size is None:
-            raise ValueError("Invalid value for `size`, must not be `None`")  # noqa: E501
 
         self._size = size
 
@@ -164,27 +163,27 @@ class VolumePost(ResourcePost):
         self._protection_policy = protection_policy
 
     @property
-    def source_volume_snapshot_link(self):
-        """Gets the source_volume_snapshot_link of this VolumePost.  # noqa: E501
+    def source_link(self):
+        """Gets the source_link of this VolumePost.  # noqa: E501
 
-        Unimplemented - The link to the volume snapshot to copy data from  # noqa: E501
+        The link to copy data from. Supported sources - VolumeSnapshot  # noqa: E501
 
-        :return: The source_volume_snapshot_link of this VolumePost.  # noqa: E501
+        :return: The source_link of this VolumePost.  # noqa: E501
         :rtype: str
         """
-        return self._source_volume_snapshot_link
+        return self._source_link
 
-    @source_volume_snapshot_link.setter
-    def source_volume_snapshot_link(self, source_volume_snapshot_link):
-        """Sets the source_volume_snapshot_link of this VolumePost.
+    @source_link.setter
+    def source_link(self, source_link):
+        """Sets the source_link of this VolumePost.
 
-        Unimplemented - The link to the volume snapshot to copy data from  # noqa: E501
+        The link to copy data from. Supported sources - VolumeSnapshot  # noqa: E501
 
-        :param source_volume_snapshot_link: The source_volume_snapshot_link of this VolumePost.  # noqa: E501
+        :param source_link: The source_link of this VolumePost.  # noqa: E501
         :type: str
         """
 
-        self._source_volume_snapshot_link = source_volume_snapshot_link
+        self._source_link = source_link
 
     def to_dict(self):
         """Returns the model properties as a dict"""
