@@ -28,7 +28,7 @@ setup(
     version=VERSION,
     description="Pure Fusion API",
     author_email="",
-    url="",
+    url="https://github.com/PureStorage-OpenConnect/fusion-python-sdk",
     keywords=["Swagger", "Pure Fusion API"],
     install_requires=REQUIRES,
     packages=find_packages(),
