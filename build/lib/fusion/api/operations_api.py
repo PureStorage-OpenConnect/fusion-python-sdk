@@ -259,7 +259,7 @@ class OperationsApi(object):
         :param str request_collection: Default to \\\"/\\\", valid values take the form \\\"/\\\", \\\"/tenants/<tname>\\\", or \\\"/tenants/<tname>/tenant-spaces/<tsname>\\\"
         :param str resource_kind: The kind of resource on which the Operation was performed.
         :param str resource_id: The ID of resource on which the Operation was performed.
-        :param str status: The status of the Operation.
+        :param str status: The status of the Operation. Support for comma separated multiple status is deprecated, use IN list instead
         :param str created_after:
         :param str filter: filter should use expression language for filtering
         :param str sort: Returns the response items in the order specified. Set sort to the field(s) in the response by which to sort. Sorting can be performed on any of the fields in the response, and the items can be sorted in ascending or descending order by these fields. By default, the response items are sorted in ascending order. To sort in descending order, append the minus sign (-) to the field. A single request can be sorted on multiple fields. For example, you can sort all volumes from largest to smallest volume size, and then sort volumes of the same size in ascending order by volume name. To sort on multiple fields, list the fields as comma-separated values. (E.g. \"sort=size-,name\")
@@ -293,7 +293,7 @@ class OperationsApi(object):
         :param str request_collection: Default to \\\"/\\\", valid values take the form \\\"/\\\", \\\"/tenants/<tname>\\\", or \\\"/tenants/<tname>/tenant-spaces/<tsname>\\\"
         :param str resource_kind: The kind of resource on which the Operation was performed.
         :param str resource_id: The ID of resource on which the Operation was performed.
-        :param str status: The status of the Operation.
+        :param str status: The status of the Operation. Support for comma separated multiple status is deprecated, use IN list instead
         :param str created_after:
         :param str filter: filter should use expression language for filtering
         :param str sort: Returns the response items in the order specified. Set sort to the field(s) in the response by which to sort. Sorting can be performed on any of the fields in the response, and the items can be sorted in ascending or descending order by these fields. By default, the response items are sorted in ascending order. To sort in descending order, append the minus sign (-) to the field. A single request can be sorted on multiple fields. For example, you can sort all volumes from largest to smallest volume size, and then sort volumes of the same size in ascending order by volume name. To sort on multiple fields, list the fields as comma-separated values. (E.g. \"sort=size-,name\")
