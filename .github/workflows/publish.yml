@@ -1,0 +1,66 @@
+# This workflow will build source and binary distributions based
+# on the current repository tag. Artifacts are then uploaded to
+# PyPI and a GitHub Release is created.
+#
+
+name: Create a Release and Publish to PyPI
+
+on:
+  push:
+    tags:
+      - "v*"
+
+jobs:
+  build-n-publish:
+    name: Build and publish
+    runs-on: ubuntu-22.04
+
+    steps:
+      - uses: actions/checkout@master
+
+      - name: Set up Python 3.10
+        uses: actions/setup-python@v3
+        with:
+          python-version: "3.10"
+
+      - name: Build a binary wheel and a source tarball
+        run: |
+          python setup.py sdist bdist
+
+      - name: Check version match
+        id: check_version
+        run: |
+          VERSION=$(python setup.py --version)
+          if [[ v${{ github.ref }} != *$VERSION ]]; then
+            echo "Expecting version $VERSION, but got v${{ github.ref }}"
+            exit 1
+          fi
+          echo "FUSION_VERSION=$VERSION" >> $GITHUB_ENV
+
+      - name: Publish distribution 📦 to PyPI
+        uses: pypa/gh-action-pypi-publish@release/v1
+        with:
+          password: ${{ secrets.PYPI_API_TOKEN }}
+
+      - name: Create a Github Release
+        id: create_release
+        uses: actions/create-release@v1
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }} # This token is provided automatically by Actions
+        with:
+          tag_name: ${{ github.ref }}
+          release_name: Fusion - Release ${{ github.ref }} (${{ github.event.repository.updated_at}})
+          body: |
+            Publishing release as [purefusion-${{ env.FUSION_VERSION }}](https://pypi.org/project/purefusion/)
+          draft: false
+          prerelease: false
+
+      - name: Upload Release Asset (tar.gz)
+        uses: actions/upload-release-asset@v1
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        with:
+          upload_url: ${{ steps.create_release.outputs.upload_url }}
+          asset_path: dist/purefusion-${{ env.FUSION_VERSION }}.tar.gz
+          asset_name: purefusion-${{ env.FUSION_VERSION }}.tar.gz
+          asset_content_type: application/x-tar
