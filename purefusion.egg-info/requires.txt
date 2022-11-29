@@ -1,7 +1,0 @@
-PyJWT==2.3.0
-certifi
-paramiko
-python-dateutil
-requests
-six>=1.10
-urllib3>=1.15
