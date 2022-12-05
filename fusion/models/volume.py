@@ -40,7 +40,9 @@ class Volume(ResourceMetadata):
         'source_volume_snapshot': 'VolumeSnapshotRef',
         'host_access_policies': 'list[HostAccessPolicyRef]',
         'serial_number': 'str',
-        'target': 'Target'
+        'target': 'Target',
+        'time_remaining': 'int',
+        'destroyed': 'bool'
     }
     if hasattr(ResourceMetadata, "swagger_types"):
         swagger_types.update(ResourceMetadata.swagger_types)
@@ -57,12 +59,14 @@ class Volume(ResourceMetadata):
         'source_volume_snapshot': 'source_volume_snapshot',
         'host_access_policies': 'host_access_policies',
         'serial_number': 'serial_number',
-        'target': 'target'
+        'target': 'target',
+        'time_remaining': 'time_remaining',
+        'destroyed': 'destroyed'
     }
     if hasattr(ResourceMetadata, "attribute_map"):
         attribute_map.update(ResourceMetadata.attribute_map)
 
-    def __init__(self, size=None, tenant=None, tenant_space=None, storage_class=None, protection_policy=None, placement_group=None, array=None, created_at=None, source_volume_snapshot=None, host_access_policies=None, serial_number=None, target=None, *args, **kwargs):  # noqa: E501
+    def __init__(self, size=None, tenant=None, tenant_space=None, storage_class=None, protection_policy=None, placement_group=None, array=None, created_at=None, source_volume_snapshot=None, host_access_policies=None, serial_number=None, target=None, time_remaining=None, destroyed=None, *args, **kwargs):  # noqa: E501
         """Volume - a model defined in Swagger"""  # noqa: E501
         self._size = None
         self._tenant = None
@@ -76,6 +80,8 @@ class Volume(ResourceMetadata):
         self._host_access_policies = None
         self._serial_number = None
         self._target = None
+        self._time_remaining = None
+        self._destroyed = None
         self.discriminator = None
         if size is not None:
             self.size = size
@@ -97,6 +103,10 @@ class Volume(ResourceMetadata):
         self.serial_number = serial_number
         if target is not None:
             self.target = target
+        if time_remaining is not None:
+            self.time_remaining = time_remaining
+        if destroyed is not None:
+            self.destroyed = destroyed
         ResourceMetadata.__init__(self, *args, **kwargs)
 
     @property
@@ -362,6 +372,52 @@ class Volume(ResourceMetadata):
         """
 
         self._target = target
+
+    @property
+    def time_remaining(self):
+        """Gets the time_remaining of this Volume.  # noqa: E501
+
+        The amount of time left until the destroyed volume is permanently eradicated. Measured in milliseconds. Before the time_remaining period has elapsed, the destroyed volume can be recovered by setting destroyed=false.  # noqa: E501
+
+        :return: The time_remaining of this Volume.  # noqa: E501
+        :rtype: int
+        """
+        return self._time_remaining
+
+    @time_remaining.setter
+    def time_remaining(self, time_remaining):
+        """Sets the time_remaining of this Volume.
+
+        The amount of time left until the destroyed volume is permanently eradicated. Measured in milliseconds. Before the time_remaining period has elapsed, the destroyed volume can be recovered by setting destroyed=false.  # noqa: E501
+
+        :param time_remaining: The time_remaining of this Volume.  # noqa: E501
+        :type: int
+        """
+
+        self._time_remaining = time_remaining
+
+    @property
+    def destroyed(self):
+        """Gets the destroyed of this Volume.  # noqa: E501
+
+        True if the volume has been destroyed and is pending eradication. The time_remaining value displays the amount of time left until the destroyed volume is permanently eradicated. Before the time_remaining period has elapsed, the destroyed volume can be recovered by setting destroyed=false. Once the time_remaining period has elapsed, the volume is permanently eradicated and can no longer be recovered.  # noqa: E501
+
+        :return: The destroyed of this Volume.  # noqa: E501
+        :rtype: bool
+        """
+        return self._destroyed
+
+    @destroyed.setter
+    def destroyed(self, destroyed):
+        """Sets the destroyed of this Volume.
+
+        True if the volume has been destroyed and is pending eradication. The time_remaining value displays the amount of time left until the destroyed volume is permanently eradicated. Before the time_remaining period has elapsed, the destroyed volume can be recovered by setting destroyed=false. Once the time_remaining period has elapsed, the volume is permanently eradicated and can no longer be recovered.  # noqa: E501
+
+        :param destroyed: The destroyed of this Volume.  # noqa: E501
+        :type: bool
+        """
+
+        self._destroyed = destroyed
 
     def to_dict(self):
         """Returns the model properties as a dict"""
