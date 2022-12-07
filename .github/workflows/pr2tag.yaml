@@ -13,14 +13,20 @@ on:
       - closed
 
 jobs:
-  if_merged:
-    if: github.event.pull_request.merged == true
+  Tag:
+    if: github.event.pull_request.merged == true && contains(github.event.head.ref, 'release')
     runs-on: ubuntu-22.04
     steps:
-    - run: |
-        echo The PR was merged
-
     - env:
         EVENT_CONTEXT: ${{ toJSON(github.event) }}
       run: |
         echo $EVENT_CONTEXT
+
+    - run: |
+        BRANCH=${{ github.event.head.ref }}
+        echo The PR was merged from branch $BRANCH
+        echo "BRANCH=$BRANCH" >> $GITHUB_ENV
+
+    - run: |
+        VERSION=v${TEST#release_*}
+        echo Will tag $VERSION
