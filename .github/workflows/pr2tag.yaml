@@ -1,0 +1,26 @@
+# This workflow will build source and binary distributions based
+# on the current repository tag. Artifacts are then uploaded to
+# PyPI and a GitHub Release is created.
+#
+
+name: Tag when release PR is merged
+
+on:
+  pull_request:
+    branches: 
+      - main
+    types:
+      - closed
+
+jobs:
+  if_merged:
+    if: github.event.pull_request.merged == true
+    runs-on: ubuntu-22.04
+    steps:
+    - run: |
+        echo The PR was merged
+
+    - env:
+        EVENT_CONTEXT: ${{ toJSON(github.event) }}
+      run: |
+        echo $EVENT_CONTEXT
