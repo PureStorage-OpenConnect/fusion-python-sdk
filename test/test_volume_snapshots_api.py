@@ -28,24 +28,10 @@ class TestVolumeSnapshotsApi(unittest.TestCase):
     def tearDown(self):
         pass
 
-    def test_get_volume_snapshot(self):
-        """Test case for get_volume_snapshot
+    def test_query_volume_snapshots(self):
+        """Test case for query_volume_snapshots
 
-        Gets a specific Volume Snapshot.  # noqa: E501
-        """
-        pass
-
-    def test_get_volume_snapshot_by_id(self):
-        """Test case for get_volume_snapshot_by_id
-
-        Gets a specific Volume Snapshot.  # noqa: E501
-        """
-        pass
-
-    def test_list_volume_snapshots(self):
-        """Test case for list_volume_snapshots
-
-        Gets a list of all Volume snapshots in a Snapshot.  # noqa: E501
+        (Opt-in) Get all Volume Snapshots in the org. Provide a filter to search for specific volume snapshots.  # noqa: E501
         """
         pass
 

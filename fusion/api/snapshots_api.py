@@ -625,6 +625,151 @@ class SnapshotsApi(object):
             _request_timeout=params.get('_request_timeout'),
             collection_formats=collection_formats)
 
+    def query_snapshots(self, **kwargs):  # noqa: E501
+        """(Opt-in) Get all Snapshots in the org. Provide a filter to search for specific snapshots.  # noqa: E501
+
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.query_snapshots(async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool
+        :param str filter: filter should use expression language for filtering
+        :param str sort: Returns the response items in the order specified. Set sort to the field(s) in the response by which to sort. Sorting can be performed on any of the fields in the response, and the items can be sorted in ascending or descending order by these fields. By default, the response items are sorted in ascending order. To sort in descending order, append the minus sign (-) to the field. A single request can be sorted on multiple fields. For example, you can sort all volumes from largest to smallest volume size, and then sort volumes of the same size in ascending order by volume name. To sort on multiple fields, list the fields as comma-separated values. (E.g. \"sort=size-,name\")
+        :param int limit:
+        :param int offset:
+        :param str id:
+        :param str name:
+        :param str display_name:
+        :param str tenant_space_id:
+        :param str tenant_id:
+        :param str protection_policy_id:
+        :param bool destroyed:
+        :param int time_remaining:
+        :param str x_request_id: The Request ID supplied with the request, used to perform operations idempotently.
+        :param str authorization: Access token (in JWT format) required to use any API endpoint.
+        :param str x_correlation_id: The Correlation ID provided will be added to log messages and can be used for support. The same Correlation ID may be used for separate requests, to track a higher level workflow.
+        :return: SnapshotList
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+        kwargs['_return_http_data_only'] = True
+        if kwargs.get('async_req'):
+            return self.query_snapshots_with_http_info(**kwargs)  # noqa: E501
+        else:
+            (data) = self.query_snapshots_with_http_info(**kwargs)  # noqa: E501
+            return data
+
+    def query_snapshots_with_http_info(self, **kwargs):  # noqa: E501
+        """(Opt-in) Get all Snapshots in the org. Provide a filter to search for specific snapshots.  # noqa: E501
+
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.query_snapshots_with_http_info(async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool
+        :param str filter: filter should use expression language for filtering
+        :param str sort: Returns the response items in the order specified. Set sort to the field(s) in the response by which to sort. Sorting can be performed on any of the fields in the response, and the items can be sorted in ascending or descending order by these fields. By default, the response items are sorted in ascending order. To sort in descending order, append the minus sign (-) to the field. A single request can be sorted on multiple fields. For example, you can sort all volumes from largest to smallest volume size, and then sort volumes of the same size in ascending order by volume name. To sort on multiple fields, list the fields as comma-separated values. (E.g. \"sort=size-,name\")
+        :param int limit:
+        :param int offset:
+        :param str id:
+        :param str name:
+        :param str display_name:
+        :param str tenant_space_id:
+        :param str tenant_id:
+        :param str protection_policy_id:
+        :param bool destroyed:
+        :param int time_remaining:
+        :param str x_request_id: The Request ID supplied with the request, used to perform operations idempotently.
+        :param str authorization: Access token (in JWT format) required to use any API endpoint.
+        :param str x_correlation_id: The Correlation ID provided will be added to log messages and can be used for support. The same Correlation ID may be used for separate requests, to track a higher level workflow.
+        :return: SnapshotList
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+
+        all_params = ['filter', 'sort', 'limit', 'offset', 'id', 'name', 'display_name', 'tenant_space_id', 'tenant_id', 'protection_policy_id', 'destroyed', 'time_remaining', 'x_request_id', 'authorization', 'x_correlation_id']  # noqa: E501
+        all_params.append('async_req')
+        all_params.append('_return_http_data_only')
+        all_params.append('_preload_content')
+        all_params.append('_request_timeout')
+
+        params = locals()
+        for key, val in six.iteritems(params['kwargs']):
+            if key not in all_params:
+                raise TypeError(
+                    "Got an unexpected keyword argument '%s'"
+                    " to method query_snapshots" % key
+                )
+            params[key] = val
+        del params['kwargs']
+
+        collection_formats = {}
+
+        path_params = {}
+
+        query_params = []
+        if 'filter' in params:
+            query_params.append(('filter', params['filter']))  # noqa: E501
+        if 'sort' in params:
+            query_params.append(('sort', params['sort']))  # noqa: E501
+        if 'limit' in params:
+            query_params.append(('limit', params['limit']))  # noqa: E501
+        if 'offset' in params:
+            query_params.append(('offset', params['offset']))  # noqa: E501
+        if 'id' in params:
+            query_params.append(('id', params['id']))  # noqa: E501
+        if 'name' in params:
+            query_params.append(('name', params['name']))  # noqa: E501
+        if 'display_name' in params:
+            query_params.append(('display_name', params['display_name']))  # noqa: E501
+        if 'tenant_space_id' in params:
+            query_params.append(('tenant_space_id', params['tenant_space_id']))  # noqa: E501
+        if 'tenant_id' in params:
+            query_params.append(('tenant_id', params['tenant_id']))  # noqa: E501
+        if 'protection_policy_id' in params:
+            query_params.append(('protection_policy_id', params['protection_policy_id']))  # noqa: E501
+        if 'destroyed' in params:
+            query_params.append(('destroyed', params['destroyed']))  # noqa: E501
+        if 'time_remaining' in params:
+            query_params.append(('time_remaining', params['time_remaining']))  # noqa: E501
+
+        header_params = {}
+        if 'x_request_id' in params:
+            header_params['X-Request-ID'] = params['x_request_id']  # noqa: E501
+        if 'authorization' in params:
+            header_params['Authorization'] = params['authorization']  # noqa: E501
+        if 'x_correlation_id' in params:
+            header_params['X-Correlation-ID'] = params['x_correlation_id']  # noqa: E501
+
+        form_params = []
+        local_var_files = {}
+
+        body_params = None
+        # HTTP header `Accept`
+        header_params['Accept'] = self.api_client.select_header_accept(
+            ['application/json'])  # noqa: E501
+
+        # Authentication setting
+        auth_settings = ['accessToken', 'oauth']  # noqa: E501
+
+        return self.api_client.call_api(
+            '/resources/snapshots', 'GET',
+            path_params,
+            query_params,
+            header_params,
+            body=body_params,
+            post_params=form_params,
+            files=local_var_files,
+            response_type='SnapshotList',  # noqa: E501
+            auth_settings=auth_settings,
+            async_req=params.get('async_req'),
+            _return_http_data_only=params.get('_return_http_data_only'),
+            _preload_content=params.get('_preload_content', True),
+            _request_timeout=params.get('_request_timeout'),
+            collection_formats=collection_formats)
+
     def update_snapshot(self, body, tenant_name, tenant_space_name, snapshot_name, **kwargs):  # noqa: E501
         """Recovers a pending snapshot  # noqa: E501
 

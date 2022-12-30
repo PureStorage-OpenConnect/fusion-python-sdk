@@ -23,6 +23,7 @@ from fusion.api.storage_services_api import StorageServicesApi
 from fusion.api.tenant_spaces_api import TenantSpacesApi
 from fusion.api.tenants_api import TenantsApi
 from fusion.api.volume_snapshots_api import VolumeSnapshotsApi
+from fusion.api.volume_snapshots_api import VolumeSnapshotsApi
 from fusion.api.volumes_api import VolumesApi
 from fusion.api.workload_planner_api import WorkloadPlannerApi
 from fusion.api.default_api import DefaultApi

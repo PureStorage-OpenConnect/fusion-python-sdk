@@ -36,7 +36,8 @@ class PlacementRecommendation(ResourceMetadata):
         'placement_group': 'PlacementGroupRef',
         'simulated_placement': 'SimulatedPlacement',
         'included_arrays': 'list[PlacementRecommendationIncludedArray]',
-        'excluded_arrays': 'list[PlacementRecommendationExcludedArray]'
+        'excluded_arrays': 'list[PlacementRecommendationExcludedArray]',
+        'target_arrays': 'list[ArrayRef]'
     }
     if hasattr(ResourceMetadata, "swagger_types"):
         swagger_types.update(ResourceMetadata.swagger_types)
@@ -49,12 +50,13 @@ class PlacementRecommendation(ResourceMetadata):
         'placement_group': 'placement_group',
         'simulated_placement': 'simulated_placement',
         'included_arrays': 'included_arrays',
-        'excluded_arrays': 'excluded_arrays'
+        'excluded_arrays': 'excluded_arrays',
+        'target_arrays': 'target_arrays'
     }
     if hasattr(ResourceMetadata, "attribute_map"):
         attribute_map.update(ResourceMetadata.attribute_map)
 
-    def __init__(self, tenant=None, tenant_space=None, placement_engine=None, placement_group_id=None, placement_group=None, simulated_placement=None, included_arrays=None, excluded_arrays=None, *args, **kwargs):  # noqa: E501
+    def __init__(self, tenant=None, tenant_space=None, placement_engine=None, placement_group_id=None, placement_group=None, simulated_placement=None, included_arrays=None, excluded_arrays=None, target_arrays=None, *args, **kwargs):  # noqa: E501
         """PlacementRecommendation - a model defined in Swagger"""  # noqa: E501
         self._tenant = None
         self._tenant_space = None
@@ -64,6 +66,7 @@ class PlacementRecommendation(ResourceMetadata):
         self._simulated_placement = None
         self._included_arrays = None
         self._excluded_arrays = None
+        self._target_arrays = None
         self.discriminator = None
         if tenant is not None:
             self.tenant = tenant
@@ -81,6 +84,8 @@ class PlacementRecommendation(ResourceMetadata):
             self.included_arrays = included_arrays
         if excluded_arrays is not None:
             self.excluded_arrays = excluded_arrays
+        if target_arrays is not None:
+            self.target_arrays = target_arrays
         ResourceMetadata.__init__(self, *args, **kwargs)
 
     @property
@@ -256,6 +261,29 @@ class PlacementRecommendation(ResourceMetadata):
         """
 
         self._excluded_arrays = excluded_arrays
+
+    @property
+    def target_arrays(self):
+        """Gets the target_arrays of this PlacementRecommendation.  # noqa: E501
+
+        If present, this is the list of arrays that was provided when requesting the placement recommendation report to consider for placement recommendations  # noqa: E501
+
+        :return: The target_arrays of this PlacementRecommendation.  # noqa: E501
+        :rtype: list[ArrayRef]
+        """
+        return self._target_arrays
+
+    @target_arrays.setter
+    def target_arrays(self, target_arrays):
+        """Sets the target_arrays of this PlacementRecommendation.
+
+        If present, this is the list of arrays that was provided when requesting the placement recommendation report to consider for placement recommendations  # noqa: E501
+
+        :param target_arrays: The target_arrays of this PlacementRecommendation.  # noqa: E501
+        :type: list[ArrayRef]
+        """
+
+        self._target_arrays = target_arrays
 
     def to_dict(self):
         """Returns the model properties as a dict"""

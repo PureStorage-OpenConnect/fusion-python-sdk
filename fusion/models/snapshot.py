@@ -33,7 +33,8 @@ class Snapshot(ResourceMetadata):
         'tenant_space': 'TenantSpaceRef',
         'volume_snapshots_link': 'str',
         'protection_policy': 'ProtectionPolicyRef',
-        'time_remaining': 'int'
+        'time_remaining': 'int',
+        'destroyed': 'bool'
     }
     if hasattr(ResourceMetadata, "swagger_types"):
         swagger_types.update(ResourceMetadata.swagger_types)
@@ -43,18 +44,20 @@ class Snapshot(ResourceMetadata):
         'tenant_space': 'tenant_space',
         'volume_snapshots_link': 'volume_snapshots_link',
         'protection_policy': 'protection_policy',
-        'time_remaining': 'time_remaining'
+        'time_remaining': 'time_remaining',
+        'destroyed': 'destroyed'
     }
     if hasattr(ResourceMetadata, "attribute_map"):
         attribute_map.update(ResourceMetadata.attribute_map)
 
-    def __init__(self, tenant=None, tenant_space=None, volume_snapshots_link=None, protection_policy=None, time_remaining=None, *args, **kwargs):  # noqa: E501
+    def __init__(self, tenant=None, tenant_space=None, volume_snapshots_link=None, protection_policy=None, time_remaining=None, destroyed=None, *args, **kwargs):  # noqa: E501
         """Snapshot - a model defined in Swagger"""  # noqa: E501
         self._tenant = None
         self._tenant_space = None
         self._volume_snapshots_link = None
         self._protection_policy = None
         self._time_remaining = None
+        self._destroyed = None
         self.discriminator = None
         self.tenant = tenant
         self.tenant_space = tenant_space
@@ -63,6 +66,8 @@ class Snapshot(ResourceMetadata):
             self.protection_policy = protection_policy
         if time_remaining is not None:
             self.time_remaining = time_remaining
+        if destroyed is not None:
+            self.destroyed = destroyed
         ResourceMetadata.__init__(self, *args, **kwargs)
 
     @property
@@ -161,7 +166,7 @@ class Snapshot(ResourceMetadata):
     def time_remaining(self):
         """Gets the time_remaining of this Snapshot.  # noqa: E501
 
-        Unimplemented - The amount of time left until the destroyed snapshot is permanently eradicated. Measured in milliseconds. Before the time_remaining period has elapsed, the destroyed snapshot can be recovered by setting destroyed=false.  # noqa: E501
+        The amount of time left until the destroyed snapshot is permanently eradicated. Measured in milliseconds. Before the time_remaining period has elapsed, the destroyed snapshot can be recovered by setting destroyed=false.  # noqa: E501
 
         :return: The time_remaining of this Snapshot.  # noqa: E501
         :rtype: int
@@ -172,13 +177,36 @@ class Snapshot(ResourceMetadata):
     def time_remaining(self, time_remaining):
         """Sets the time_remaining of this Snapshot.
 
-        Unimplemented - The amount of time left until the destroyed snapshot is permanently eradicated. Measured in milliseconds. Before the time_remaining period has elapsed, the destroyed snapshot can be recovered by setting destroyed=false.  # noqa: E501
+        The amount of time left until the destroyed snapshot is permanently eradicated. Measured in milliseconds. Before the time_remaining period has elapsed, the destroyed snapshot can be recovered by setting destroyed=false.  # noqa: E501
 
         :param time_remaining: The time_remaining of this Snapshot.  # noqa: E501
         :type: int
         """
 
         self._time_remaining = time_remaining
+
+    @property
+    def destroyed(self):
+        """Gets the destroyed of this Snapshot.  # noqa: E501
+
+        True if the snapshot has been destroyed and is pending eradication. The time_remaining value displays the amount of time left until the destroyed snapshot is permanently eradicated. Before the time_remaining period has elapsed, the destroyed snapshot can be recovered by setting destroyed=false. Once the time_remaining period has elapsed, the snapshot is permanently eradicated and can no longer be recovered.  # noqa: E501
+
+        :return: The destroyed of this Snapshot.  # noqa: E501
+        :rtype: bool
+        """
+        return self._destroyed
+
+    @destroyed.setter
+    def destroyed(self, destroyed):
+        """Sets the destroyed of this Snapshot.
+
+        True if the snapshot has been destroyed and is pending eradication. The time_remaining value displays the amount of time left until the destroyed snapshot is permanently eradicated. Before the time_remaining period has elapsed, the destroyed snapshot can be recovered by setting destroyed=false. Once the time_remaining period has elapsed, the snapshot is permanently eradicated and can no longer be recovered.  # noqa: E501
+
+        :param destroyed: The destroyed of this Snapshot.  # noqa: E501
+        :type: bool
+        """
+
+        self._destroyed = destroyed
 
     def to_dict(self):
         """Returns the model properties as a dict"""

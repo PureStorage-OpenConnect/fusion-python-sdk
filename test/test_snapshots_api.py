@@ -63,6 +63,13 @@ class TestSnapshotsApi(unittest.TestCase):
         """
         pass
 
+    def test_query_snapshots(self):
+        """Test case for query_snapshots
+
+        (Opt-in) Get all Snapshots in the org. Provide a filter to search for specific snapshots.  # noqa: E501
+        """
+        pass
+
     def test_update_snapshot(self):
         """Test case for update_snapshot
 

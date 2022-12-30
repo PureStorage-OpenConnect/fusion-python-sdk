@@ -38,7 +38,7 @@ class TestVolumesApi(unittest.TestCase):
     def test_delete_volume(self):
         """Test case for delete_volume
 
-        Eradicate a specific volume.  # noqa: E501
+        Eradicate a specific volume. Volume has to be destroyed before it can be eradicated.  # noqa: E501
         """
         pass
 

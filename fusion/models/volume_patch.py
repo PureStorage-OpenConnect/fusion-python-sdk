@@ -34,7 +34,8 @@ class VolumePatch(ResourcePatch):
         'storage_class': 'NullableString',
         'placement_group': 'NullableString',
         'protection_policy': 'NullableString',
-        'host_access_policies': 'NullableString'
+        'host_access_policies': 'NullableString',
+        'destroyed': 'NullableBoolean'
     }
     if hasattr(ResourcePatch, "swagger_types"):
         swagger_types.update(ResourcePatch.swagger_types)
@@ -45,12 +46,13 @@ class VolumePatch(ResourcePatch):
         'storage_class': 'storage_class',
         'placement_group': 'placement_group',
         'protection_policy': 'protection_policy',
-        'host_access_policies': 'host_access_policies'
+        'host_access_policies': 'host_access_policies',
+        'destroyed': 'destroyed'
     }
     if hasattr(ResourcePatch, "attribute_map"):
         attribute_map.update(ResourcePatch.attribute_map)
 
-    def __init__(self, source_volume_snapshot_link=None, size=None, storage_class=None, placement_group=None, protection_policy=None, host_access_policies=None, *args, **kwargs):  # noqa: E501
+    def __init__(self, source_volume_snapshot_link=None, size=None, storage_class=None, placement_group=None, protection_policy=None, host_access_policies=None, destroyed=None, *args, **kwargs):  # noqa: E501
         """VolumePatch - a model defined in Swagger"""  # noqa: E501
         self._source_volume_snapshot_link = None
         self._size = None
@@ -58,6 +60,7 @@ class VolumePatch(ResourcePatch):
         self._placement_group = None
         self._protection_policy = None
         self._host_access_policies = None
+        self._destroyed = None
         self.discriminator = None
         if source_volume_snapshot_link is not None:
             self.source_volume_snapshot_link = source_volume_snapshot_link
@@ -71,6 +74,8 @@ class VolumePatch(ResourcePatch):
             self.protection_policy = protection_policy
         if host_access_policies is not None:
             self.host_access_policies = host_access_policies
+        if destroyed is not None:
+            self.destroyed = destroyed
         ResourcePatch.__init__(self, *args, **kwargs)
 
     @property
@@ -198,6 +203,27 @@ class VolumePatch(ResourcePatch):
         """
 
         self._host_access_policies = host_access_policies
+
+    @property
+    def destroyed(self):
+        """Gets the destroyed of this VolumePatch.  # noqa: E501
+
+
+        :return: The destroyed of this VolumePatch.  # noqa: E501
+        :rtype: NullableBoolean
+        """
+        return self._destroyed
+
+    @destroyed.setter
+    def destroyed(self, destroyed):
+        """Sets the destroyed of this VolumePatch.
+
+
+        :param destroyed: The destroyed of this VolumePatch.  # noqa: E501
+        :type: NullableBoolean
+        """
+
+        self._destroyed = destroyed
 
     def to_dict(self):
         """Returns the model properties as a dict"""

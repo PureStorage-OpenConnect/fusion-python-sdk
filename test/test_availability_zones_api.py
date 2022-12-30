@@ -56,6 +56,20 @@ class TestAvailabilityZonesApi(unittest.TestCase):
         """
         pass
 
+    def test_get_availability_zone_performance(self):
+        """Test case for get_availability_zone_performance
+
+        (Provider) Gets performance metrics of a specific Availability Zone.  # noqa: E501
+        """
+        pass
+
+    def test_get_availability_zone_space(self):
+        """Test case for get_availability_zone_space
+
+        (Provider) Gets space metrics of a specific Availability Zone.  # noqa: E501
+        """
+        pass
+
     def test_list_availability_zones(self):
         """Test case for list_availability_zones
 
