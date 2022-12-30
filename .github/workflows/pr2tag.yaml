@@ -1,0 +1,34 @@
+# This workflow will tag a version commit when a release
+# pull request is merged
+#
+
+name: Tag when release PR is merged
+
+on:
+  pull_request:
+    branches: 
+      - main
+    types:
+      - closed
+
+jobs:
+  TagReleasePrMerge:
+    if: github.event.pull_request.merged == true && contains(github.event.pull_request.head.ref, 'release')
+    runs-on: ubuntu-22.04
+    steps:
+    - run: |
+        BRANCH=${{ github.event.pull_request.head.ref }}
+        echo The PR was merged from branch $BRANCH
+        VERSION=v${BRANCH#release_*}
+        echo Will tag $VERSION
+        echo "VERSION=$VERSION" >> $GITHUB_ENV
+
+    - name: Checkout code
+      uses: actions/checkout@v3
+      with:
+        fetch-depth: '0'
+    - name: Tag
+      run: |
+        git log -n 3
+        git tag $VERSION
+        git push --tags
