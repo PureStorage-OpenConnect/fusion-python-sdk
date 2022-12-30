@@ -8,7 +8,7 @@ Name | Type | Description | Notes
 **created_at** | **int** | The volume snapshot creation time. Measured in milliseconds since the UNIX epoch. | 
 **consistency_id** | **str** | Volume snapshots with the same consistency_id are crash consistency. | 
 **destroyed** | **bool** | True if the volume snapshot has been destroyed and is pending eradication. The time_remaining value displays the amount of time left until the destroyed volume snapshot is permanently eradicated. | [optional] 
-**time_remaining** | **int** | The amount of time left until the destroyed volume snapshot is permanently eradicated. Measured in milliseconds. | [optional] 
+**time_remaining** | **int** | The amount of time left until the destroyed volume snapshot is permanently eradicated. Only valid when destroyed is true. Measured in milliseconds. An expired but not yet eradicated volume snapshot has destroyed&#x3D;true and time_remaining&#x3D;0. | [optional] 
 **size** | **int** | The virtual size of the volume snapshot. Measured in bytes. | 
 **tenant** | [**TenantRef**](TenantRef.md) |  | 
 **tenant_space** | [**TenantSpaceRef**](TenantSpaceRef.md) |  | 

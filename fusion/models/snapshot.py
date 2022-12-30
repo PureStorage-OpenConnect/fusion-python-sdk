@@ -166,7 +166,7 @@ class Snapshot(ResourceMetadata):
     def time_remaining(self):
         """Gets the time_remaining of this Snapshot.  # noqa: E501
 
-        The amount of time left until the destroyed snapshot is permanently eradicated. Measured in milliseconds. Before the time_remaining period has elapsed, the destroyed snapshot can be recovered by setting destroyed=false.  # noqa: E501
+        The amount of time left until the destroyed snapshot is permanently eradicated. Only valid when destroyed is true. Measured in milliseconds. Before the time_remaining period has elapsed, the destroyed snapshot can be recovered by setting destroyed=false. An expired but not yet eradicated snapshot has destroyed=true and time_remaining=0.  # noqa: E501
 
         :return: The time_remaining of this Snapshot.  # noqa: E501
         :rtype: int
@@ -177,7 +177,7 @@ class Snapshot(ResourceMetadata):
     def time_remaining(self, time_remaining):
         """Sets the time_remaining of this Snapshot.
 
-        The amount of time left until the destroyed snapshot is permanently eradicated. Measured in milliseconds. Before the time_remaining period has elapsed, the destroyed snapshot can be recovered by setting destroyed=false.  # noqa: E501
+        The amount of time left until the destroyed snapshot is permanently eradicated. Only valid when destroyed is true. Measured in milliseconds. Before the time_remaining period has elapsed, the destroyed snapshot can be recovered by setting destroyed=false. An expired but not yet eradicated snapshot has destroyed=true and time_remaining=0.  # noqa: E501
 
         :param time_remaining: The time_remaining of this Snapshot.  # noqa: E501
         :type: int

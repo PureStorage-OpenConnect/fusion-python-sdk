@@ -37,7 +37,8 @@ class PlacementRecommendation(ResourceMetadata):
         'simulated_placement': 'SimulatedPlacement',
         'included_arrays': 'list[PlacementRecommendationIncludedArray]',
         'excluded_arrays': 'list[PlacementRecommendationExcludedArray]',
-        'target_arrays': 'list[ArrayRef]'
+        'target_arrays': 'list[ArrayRef]',
+        'time_remaining': 'int'
     }
     if hasattr(ResourceMetadata, "swagger_types"):
         swagger_types.update(ResourceMetadata.swagger_types)
@@ -51,12 +52,13 @@ class PlacementRecommendation(ResourceMetadata):
         'simulated_placement': 'simulated_placement',
         'included_arrays': 'included_arrays',
         'excluded_arrays': 'excluded_arrays',
-        'target_arrays': 'target_arrays'
+        'target_arrays': 'target_arrays',
+        'time_remaining': 'time_remaining'
     }
     if hasattr(ResourceMetadata, "attribute_map"):
         attribute_map.update(ResourceMetadata.attribute_map)
 
-    def __init__(self, tenant=None, tenant_space=None, placement_engine=None, placement_group_id=None, placement_group=None, simulated_placement=None, included_arrays=None, excluded_arrays=None, target_arrays=None, *args, **kwargs):  # noqa: E501
+    def __init__(self, tenant=None, tenant_space=None, placement_engine=None, placement_group_id=None, placement_group=None, simulated_placement=None, included_arrays=None, excluded_arrays=None, target_arrays=None, time_remaining=None, *args, **kwargs):  # noqa: E501
         """PlacementRecommendation - a model defined in Swagger"""  # noqa: E501
         self._tenant = None
         self._tenant_space = None
@@ -67,6 +69,7 @@ class PlacementRecommendation(ResourceMetadata):
         self._included_arrays = None
         self._excluded_arrays = None
         self._target_arrays = None
+        self._time_remaining = None
         self.discriminator = None
         if tenant is not None:
             self.tenant = tenant
@@ -86,6 +89,8 @@ class PlacementRecommendation(ResourceMetadata):
             self.excluded_arrays = excluded_arrays
         if target_arrays is not None:
             self.target_arrays = target_arrays
+        if time_remaining is not None:
+            self.time_remaining = time_remaining
         ResourceMetadata.__init__(self, *args, **kwargs)
 
     @property
@@ -284,6 +289,29 @@ class PlacementRecommendation(ResourceMetadata):
         """
 
         self._target_arrays = target_arrays
+
+    @property
+    def time_remaining(self):
+        """Gets the time_remaining of this PlacementRecommendation.  # noqa: E501
+
+        Number of milliseconds left before this Placement Recommendation report is deleted  # noqa: E501
+
+        :return: The time_remaining of this PlacementRecommendation.  # noqa: E501
+        :rtype: int
+        """
+        return self._time_remaining
+
+    @time_remaining.setter
+    def time_remaining(self, time_remaining):
+        """Sets the time_remaining of this PlacementRecommendation.
+
+        Number of milliseconds left before this Placement Recommendation report is deleted  # noqa: E501
+
+        :param time_remaining: The time_remaining of this PlacementRecommendation.  # noqa: E501
+        :type: int
+        """
+
+        self._time_remaining = time_remaining
 
     def to_dict(self):
         """Returns the model properties as a dict"""
