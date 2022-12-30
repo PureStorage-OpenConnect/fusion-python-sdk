@@ -34,7 +34,8 @@ class PlacementRecommendationPost(ResourcePost):
         'tenant': 'str',
         'tenant_space': 'str',
         'placement_engine': 'PlacementEngine',
-        'simulated_placement': 'SimulatedPlacementPost'
+        'simulated_placement': 'SimulatedPlacementPost',
+        'target_arrays': 'list[str]'
     }
     if hasattr(ResourcePost, "swagger_types"):
         swagger_types.update(ResourcePost.swagger_types)
@@ -45,12 +46,13 @@ class PlacementRecommendationPost(ResourcePost):
         'tenant': 'tenant',
         'tenant_space': 'tenant_space',
         'placement_engine': 'placement_engine',
-        'simulated_placement': 'simulated_placement'
+        'simulated_placement': 'simulated_placement',
+        'target_arrays': 'target_arrays'
     }
     if hasattr(ResourcePost, "attribute_map"):
         attribute_map.update(ResourcePost.attribute_map)
 
-    def __init__(self, placement_group_link=None, placement_group=None, tenant=None, tenant_space=None, placement_engine=None, simulated_placement=None, *args, **kwargs):  # noqa: E501
+    def __init__(self, placement_group_link=None, placement_group=None, tenant=None, tenant_space=None, placement_engine=None, simulated_placement=None, target_arrays=None, *args, **kwargs):  # noqa: E501
         """PlacementRecommendationPost - a model defined in Swagger"""  # noqa: E501
         self._placement_group_link = None
         self._placement_group = None
@@ -58,6 +60,7 @@ class PlacementRecommendationPost(ResourcePost):
         self._tenant_space = None
         self._placement_engine = None
         self._simulated_placement = None
+        self._target_arrays = None
         self.discriminator = None
         if placement_group_link is not None:
             self.placement_group_link = placement_group_link
@@ -69,6 +72,8 @@ class PlacementRecommendationPost(ResourcePost):
             self.placement_engine = placement_engine
         if simulated_placement is not None:
             self.simulated_placement = simulated_placement
+        if target_arrays is not None:
+            self.target_arrays = target_arrays
         ResourcePost.__init__(self, *args, **kwargs)
 
     @property
@@ -208,6 +213,29 @@ class PlacementRecommendationPost(ResourcePost):
         """
 
         self._simulated_placement = simulated_placement
+
+    @property
+    def target_arrays(self):
+        """Gets the target_arrays of this PlacementRecommendationPost.  # noqa: E501
+
+        Optional argument. If provided, specify a list of array names to constraint the list of arrays under consideration for placement recommendations  # noqa: E501
+
+        :return: The target_arrays of this PlacementRecommendationPost.  # noqa: E501
+        :rtype: list[str]
+        """
+        return self._target_arrays
+
+    @target_arrays.setter
+    def target_arrays(self, target_arrays):
+        """Sets the target_arrays of this PlacementRecommendationPost.
+
+        Optional argument. If provided, specify a list of array names to constraint the list of arrays under consideration for placement recommendations  # noqa: E501
+
+        :param target_arrays: The target_arrays of this PlacementRecommendationPost.  # noqa: E501
+        :type: list[str]
+        """
+
+        self._target_arrays = target_arrays
 
     def to_dict(self):
         """Returns the model properties as a dict"""

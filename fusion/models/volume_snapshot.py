@@ -33,6 +33,7 @@ class VolumeSnapshot(ResourceMetadata):
         'volume_serial_number': 'str',
         'created_at': 'int',
         'consistency_id': 'str',
+        'destroyed': 'bool',
         'time_remaining': 'int',
         'size': 'int',
         'tenant': 'TenantRef',
@@ -50,6 +51,7 @@ class VolumeSnapshot(ResourceMetadata):
         'volume_serial_number': 'volume_serial_number',
         'created_at': 'created_at',
         'consistency_id': 'consistency_id',
+        'destroyed': 'destroyed',
         'time_remaining': 'time_remaining',
         'size': 'size',
         'tenant': 'tenant',
@@ -62,12 +64,13 @@ class VolumeSnapshot(ResourceMetadata):
     if hasattr(ResourceMetadata, "attribute_map"):
         attribute_map.update(ResourceMetadata.attribute_map)
 
-    def __init__(self, serial_number=None, volume_serial_number=None, created_at=None, consistency_id=None, time_remaining=None, size=None, tenant=None, tenant_space=None, snapshot=None, volume=None, protection_policy=None, placement_group=None, *args, **kwargs):  # noqa: E501
+    def __init__(self, serial_number=None, volume_serial_number=None, created_at=None, consistency_id=None, destroyed=None, time_remaining=None, size=None, tenant=None, tenant_space=None, snapshot=None, volume=None, protection_policy=None, placement_group=None, *args, **kwargs):  # noqa: E501
         """VolumeSnapshot - a model defined in Swagger"""  # noqa: E501
         self._serial_number = None
         self._volume_serial_number = None
         self._created_at = None
         self._consistency_id = None
+        self._destroyed = None
         self._time_remaining = None
         self._size = None
         self._tenant = None
@@ -81,6 +84,8 @@ class VolumeSnapshot(ResourceMetadata):
         self.volume_serial_number = volume_serial_number
         self.created_at = created_at
         self.consistency_id = consistency_id
+        if destroyed is not None:
+            self.destroyed = destroyed
         if time_remaining is not None:
             self.time_remaining = time_remaining
         self.size = size
@@ -195,10 +200,33 @@ class VolumeSnapshot(ResourceMetadata):
         self._consistency_id = consistency_id
 
     @property
+    def destroyed(self):
+        """Gets the destroyed of this VolumeSnapshot.  # noqa: E501
+
+        True if the volume snapshot has been destroyed and is pending eradication. The time_remaining value displays the amount of time left until the destroyed volume snapshot is permanently eradicated.  # noqa: E501
+
+        :return: The destroyed of this VolumeSnapshot.  # noqa: E501
+        :rtype: bool
+        """
+        return self._destroyed
+
+    @destroyed.setter
+    def destroyed(self, destroyed):
+        """Sets the destroyed of this VolumeSnapshot.
+
+        True if the volume snapshot has been destroyed and is pending eradication. The time_remaining value displays the amount of time left until the destroyed volume snapshot is permanently eradicated.  # noqa: E501
+
+        :param destroyed: The destroyed of this VolumeSnapshot.  # noqa: E501
+        :type: bool
+        """
+
+        self._destroyed = destroyed
+
+    @property
     def time_remaining(self):
         """Gets the time_remaining of this VolumeSnapshot.  # noqa: E501
 
-        Unimplemented - The amount of time left until the destroyed volume snapshot is permanently eradicated. Measured in milliseconds.  # noqa: E501
+        The amount of time left until the destroyed volume snapshot is permanently eradicated. Measured in milliseconds.  # noqa: E501
 
         :return: The time_remaining of this VolumeSnapshot.  # noqa: E501
         :rtype: int
@@ -209,7 +237,7 @@ class VolumeSnapshot(ResourceMetadata):
     def time_remaining(self, time_remaining):
         """Sets the time_remaining of this VolumeSnapshot.
 
-        Unimplemented - The amount of time left until the destroyed volume snapshot is permanently eradicated. Measured in milliseconds.  # noqa: E501
+        The amount of time left until the destroyed volume snapshot is permanently eradicated. Measured in milliseconds.  # noqa: E501
 
         :param time_remaining: The time_remaining of this VolumeSnapshot.  # noqa: E501
         :type: int

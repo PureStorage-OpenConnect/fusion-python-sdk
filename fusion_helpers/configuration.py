@@ -33,7 +33,7 @@ class Configuration(fusion.configuration.Configuration):
         # when super class call self.access_token = '', this function will be called
         if token != '':
             print('INFO: setting access_token from external source. Generate access token from issuer_id and private_key_file is disabled')
-            print('Recommand way of using Configuration: fusion.Configuration(issuer_id=<MY_ID>, private_key_file=<PATH_TO_KEY>)')
+            print('Recommended way of using Configuration: fusion.Configuration(issuer_id=<MY_ID>, private_key_file=<PATH_TO_KEY>)')
         if self._external_access_token != '':
             print('WARN: set overwriting access_token from external source')
         self._external_access_token = token

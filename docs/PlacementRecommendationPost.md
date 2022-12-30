@@ -9,6 +9,7 @@ Name | Type | Description | Notes
 **tenant_space** | **str** | Tenant Space that Placement Group belongs to. For placement of new placement group, enter TenantSpace where Placement Group would have been created in | 
 **placement_engine** | [**PlacementEngine**](PlacementEngine.md) |  | [optional] 
 **simulated_placement** | [**SimulatedPlacementPost**](SimulatedPlacementPost.md) |  | [optional] 
+**target_arrays** | **list[str]** | Optional argument. If provided, specify a list of array names to constraint the list of arrays under consideration for placement recommendations | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

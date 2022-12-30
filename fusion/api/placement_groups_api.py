@@ -980,53 +980,81 @@ class PlacementGroupsApi(object):
             _request_timeout=params.get('_request_timeout'),
             collection_formats=collection_formats)
 
-    def query_placement_groups(self, region_name, availability_zone_name, array_name, **kwargs):  # noqa: E501
+    def query_placement_groups(self, **kwargs):  # noqa: E501
         """Returns a list of Placement Groups from query  # noqa: E501
 
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.query_placement_groups(region_name, availability_zone_name, array_name, async_req=True)
+        >>> thread = api.query_placement_groups(async_req=True)
         >>> result = thread.get()
 
         :param async_req bool
-        :param str region_name: Region that array belongs to. (required)
-        :param str availability_zone_name: Availability zone that array belongs to. (required)
-        :param str array_name: Return placement-groups across all tenant spaces that are located on the array. (required)
         :param str x_request_id: The Request ID supplied with the request, used to perform operations idempotently.
         :param str authorization: Access token (in JWT format) required to use any API endpoint.
         :param str x_correlation_id: The Correlation ID provided will be added to log messages and can be used for support. The same Correlation ID may be used for separate requests, to track a higher level workflow.
+        :param str filter: filter should use expression language for filtering
+        :param str sort: Returns the response items in the order specified. Set sort to the field(s) in the response by which to sort. Sorting can be performed on any of the fields in the response, and the items can be sorted in ascending or descending order by these fields. By default, the response items are sorted in ascending order. To sort in descending order, append the minus sign (-) to the field. A single request can be sorted on multiple fields. For example, you can sort all volumes from largest to smallest volume size, and then sort volumes of the same size in ascending order by volume name. To sort on multiple fields, list the fields as comma-separated values. (E.g. \"sort=size-,name\")
+        :param int limit:
+        :param int offset:
+        :param str id:
+        :param str name:
+        :param str display_name:
+        :param str tenant_space_id:
+        :param str tenant_id:
+        :param str array_id:
+        :param str iqn:
+        :param str storage_service_id:
+        :param str availability_zone_id:
+        :param str placement_engine:
+        :param str region_name: Region that array belongs to.
+        :param str availability_zone_name: Availability zone that array belongs to.
+        :param str array_name: Return placement-groups across all tenant spaces that are located on the array. (region_name and availability_zone_name required)
         :return: PlacementGroupList
                  If the method is called asynchronously,
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
         if kwargs.get('async_req'):
-            return self.query_placement_groups_with_http_info(region_name, availability_zone_name, array_name, **kwargs)  # noqa: E501
+            return self.query_placement_groups_with_http_info(**kwargs)  # noqa: E501
         else:
-            (data) = self.query_placement_groups_with_http_info(region_name, availability_zone_name, array_name, **kwargs)  # noqa: E501
+            (data) = self.query_placement_groups_with_http_info(**kwargs)  # noqa: E501
             return data
 
-    def query_placement_groups_with_http_info(self, region_name, availability_zone_name, array_name, **kwargs):  # noqa: E501
+    def query_placement_groups_with_http_info(self, **kwargs):  # noqa: E501
         """Returns a list of Placement Groups from query  # noqa: E501
 
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.query_placement_groups_with_http_info(region_name, availability_zone_name, array_name, async_req=True)
+        >>> thread = api.query_placement_groups_with_http_info(async_req=True)
         >>> result = thread.get()
 
         :param async_req bool
-        :param str region_name: Region that array belongs to. (required)
-        :param str availability_zone_name: Availability zone that array belongs to. (required)
-        :param str array_name: Return placement-groups across all tenant spaces that are located on the array. (required)
         :param str x_request_id: The Request ID supplied with the request, used to perform operations idempotently.
         :param str authorization: Access token (in JWT format) required to use any API endpoint.
         :param str x_correlation_id: The Correlation ID provided will be added to log messages and can be used for support. The same Correlation ID may be used for separate requests, to track a higher level workflow.
+        :param str filter: filter should use expression language for filtering
+        :param str sort: Returns the response items in the order specified. Set sort to the field(s) in the response by which to sort. Sorting can be performed on any of the fields in the response, and the items can be sorted in ascending or descending order by these fields. By default, the response items are sorted in ascending order. To sort in descending order, append the minus sign (-) to the field. A single request can be sorted on multiple fields. For example, you can sort all volumes from largest to smallest volume size, and then sort volumes of the same size in ascending order by volume name. To sort on multiple fields, list the fields as comma-separated values. (E.g. \"sort=size-,name\")
+        :param int limit:
+        :param int offset:
+        :param str id:
+        :param str name:
+        :param str display_name:
+        :param str tenant_space_id:
+        :param str tenant_id:
+        :param str array_id:
+        :param str iqn:
+        :param str storage_service_id:
+        :param str availability_zone_id:
+        :param str placement_engine:
+        :param str region_name: Region that array belongs to.
+        :param str availability_zone_name: Availability zone that array belongs to.
+        :param str array_name: Return placement-groups across all tenant spaces that are located on the array. (region_name and availability_zone_name required)
         :return: PlacementGroupList
                  If the method is called asynchronously,
                  returns the request thread.
         """
 
-        all_params = ['region_name', 'availability_zone_name', 'array_name', 'x_request_id', 'authorization', 'x_correlation_id']  # noqa: E501
+        all_params = ['x_request_id', 'authorization', 'x_correlation_id', 'filter', 'sort', 'limit', 'offset', 'id', 'name', 'display_name', 'tenant_space_id', 'tenant_id', 'array_id', 'iqn', 'storage_service_id', 'availability_zone_id', 'placement_engine', 'region_name', 'availability_zone_name', 'array_name']  # noqa: E501
         all_params.append('async_req')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
@@ -1041,24 +1069,40 @@ class PlacementGroupsApi(object):
                 )
             params[key] = val
         del params['kwargs']
-        # verify the required parameter 'region_name' is set
-        if ('region_name' not in params or
-                params['region_name'] is None):
-            raise ValueError("Missing the required parameter `region_name` when calling `query_placement_groups`")  # noqa: E501
-        # verify the required parameter 'availability_zone_name' is set
-        if ('availability_zone_name' not in params or
-                params['availability_zone_name'] is None):
-            raise ValueError("Missing the required parameter `availability_zone_name` when calling `query_placement_groups`")  # noqa: E501
-        # verify the required parameter 'array_name' is set
-        if ('array_name' not in params or
-                params['array_name'] is None):
-            raise ValueError("Missing the required parameter `array_name` when calling `query_placement_groups`")  # noqa: E501
 
         collection_formats = {}
 
         path_params = {}
 
         query_params = []
+        if 'filter' in params:
+            query_params.append(('filter', params['filter']))  # noqa: E501
+        if 'sort' in params:
+            query_params.append(('sort', params['sort']))  # noqa: E501
+        if 'limit' in params:
+            query_params.append(('limit', params['limit']))  # noqa: E501
+        if 'offset' in params:
+            query_params.append(('offset', params['offset']))  # noqa: E501
+        if 'id' in params:
+            query_params.append(('id', params['id']))  # noqa: E501
+        if 'name' in params:
+            query_params.append(('name', params['name']))  # noqa: E501
+        if 'display_name' in params:
+            query_params.append(('display_name', params['display_name']))  # noqa: E501
+        if 'tenant_space_id' in params:
+            query_params.append(('tenant_space_id', params['tenant_space_id']))  # noqa: E501
+        if 'tenant_id' in params:
+            query_params.append(('tenant_id', params['tenant_id']))  # noqa: E501
+        if 'array_id' in params:
+            query_params.append(('array_id', params['array_id']))  # noqa: E501
+        if 'iqn' in params:
+            query_params.append(('iqn', params['iqn']))  # noqa: E501
+        if 'storage_service_id' in params:
+            query_params.append(('storage_service_id', params['storage_service_id']))  # noqa: E501
+        if 'availability_zone_id' in params:
+            query_params.append(('availability_zone_id', params['availability_zone_id']))  # noqa: E501
+        if 'placement_engine' in params:
+            query_params.append(('placement_engine', params['placement_engine']))  # noqa: E501
         if 'region_name' in params:
             query_params.append(('region_name', params['region_name']))  # noqa: E501
         if 'availability_zone_name' in params:

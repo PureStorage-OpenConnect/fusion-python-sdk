@@ -13,7 +13,7 @@
 from setuptools import setup, find_packages  # noqa: H301
 
 NAME = "purefusion"
-VERSION = "1.0.6"
+VERSION = "1.0.dev0"
 # To install the library, run the following
 #
 # python setup.py install
@@ -28,7 +28,7 @@ setup(
     version=VERSION,
     description="Pure Fusion API",
     author_email="",
-    url="https://github.com/PureStorage-OpenConnect/fusion-python-sdk",
+    url="",
     keywords=["Swagger", "Pure Fusion API"],
     install_requires=REQUIRES,
     packages=find_packages(),
