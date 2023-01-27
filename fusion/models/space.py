@@ -29,23 +29,33 @@ class Space(object):
     """
     swagger_types = {
         'resource': 'ResourceReference',
-        'total_physical_space': 'int'
+        'total_physical_space': 'int',
+        'unique_space': 'int',
+        'snapshot_space': 'int'
     }
 
     attribute_map = {
         'resource': 'resource',
-        'total_physical_space': 'total_physical_space'
+        'total_physical_space': 'total_physical_space',
+        'unique_space': 'unique_space',
+        'snapshot_space': 'snapshot_space'
     }
 
-    def __init__(self, resource=None, total_physical_space=None):  # noqa: E501
+    def __init__(self, resource=None, total_physical_space=None, unique_space=None, snapshot_space=None):  # noqa: E501
         """Space - a model defined in Swagger"""  # noqa: E501
         self._resource = None
         self._total_physical_space = None
+        self._unique_space = None
+        self._snapshot_space = None
         self.discriminator = None
         if resource is not None:
             self.resource = resource
         if total_physical_space is not None:
             self.total_physical_space = total_physical_space
+        if unique_space is not None:
+            self.unique_space = unique_space
+        if snapshot_space is not None:
+            self.snapshot_space = snapshot_space
 
     @property
     def resource(self):
@@ -72,7 +82,7 @@ class Space(object):
     def total_physical_space(self):
         """Gets the total_physical_space of this Space.  # noqa: E501
 
-        Total physical space  # noqa: E501
+        Total physical space occupied by system, shared space, volume, and snapshot data. Measured in bytes.  # noqa: E501
 
         :return: The total_physical_space of this Space.  # noqa: E501
         :rtype: int
@@ -83,13 +93,59 @@ class Space(object):
     def total_physical_space(self, total_physical_space):
         """Sets the total_physical_space of this Space.
 
-        Total physical space  # noqa: E501
+        Total physical space occupied by system, shared space, volume, and snapshot data. Measured in bytes.  # noqa: E501
 
         :param total_physical_space: The total_physical_space of this Space.  # noqa: E501
         :type: int
         """
 
         self._total_physical_space = total_physical_space
+
+    @property
+    def unique_space(self):
+        """Gets the unique_space of this Space.  # noqa: E501
+
+        The unique physical space occupied by customer data. Unique physical space does not include shared space, snapshots, and internal array metadata. Measured in bytes.  # noqa: E501
+
+        :return: The unique_space of this Space.  # noqa: E501
+        :rtype: int
+        """
+        return self._unique_space
+
+    @unique_space.setter
+    def unique_space(self, unique_space):
+        """Sets the unique_space of this Space.
+
+        The unique physical space occupied by customer data. Unique physical space does not include shared space, snapshots, and internal array metadata. Measured in bytes.  # noqa: E501
+
+        :param unique_space: The unique_space of this Space.  # noqa: E501
+        :type: int
+        """
+
+        self._unique_space = unique_space
+
+    @property
+    def snapshot_space(self):
+        """Gets the snapshot_space of this Space.  # noqa: E501
+
+        The physical space occupied by data unique to one or more snapshots. Measured in bytes.  # noqa: E501
+
+        :return: The snapshot_space of this Space.  # noqa: E501
+        :rtype: int
+        """
+        return self._snapshot_space
+
+    @snapshot_space.setter
+    def snapshot_space(self, snapshot_space):
+        """Sets the snapshot_space of this Space.
+
+        The physical space occupied by data unique to one or more snapshots. Measured in bytes.  # noqa: E501
+
+        :param snapshot_space: The snapshot_space of this Space.  # noqa: E501
+        :type: int
+        """
+
+        self._snapshot_space = snapshot_space
 
     def to_dict(self):
         """Returns the model properties as a dict"""

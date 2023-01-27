@@ -6,9 +6,11 @@
 name: Create a Release and Publish to PyPI
 
 on:
-  push:
-    tags:
-      - "v*"
+  pull_request:
+    branches: 
+      - main
+    types:
+      - closed
   # Allows you to run this workflow manually
   workflow_dispatch:
 
@@ -25,7 +27,7 @@ jobs:
         with:
           python-version: "3.10"
 
-      - name: Build a binary wheel and a source tarball
+      - name: Build the binary wheel
         run: |
           pip install wheel
           python setup.py bdist_wheel
@@ -33,9 +35,12 @@ jobs:
       - name: Check version match
         id: check_version
         run: |
+          BRANCH=${{ github.event.pull_request.head.ref }}
+          BRANCH_VERSION=${BRANCH#release_*}
           VERSION=$(python setup.py --version)
-          if [[ v${{ github.ref }} != *$VERSION ]]; then
-            echo "Expecting version $VERSION, but got v${{ github.ref }}"
+          echo $VERSION x $BRANCH_VERSION
+          if [[ $BRANCH_VERSION != $VERSION ]]; then
+            echo "Expecting version $VERSION, but branch is named $BRANCH"
             exit 1
           fi
           echo "FUSION_VERSION=$VERSION" >> $GITHUB_ENV
@@ -51,8 +56,8 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }} # This token is provided automatically by Actions
         with:
-          tag_name: ${{ github.ref }}
-          release_name: Fusion - Release ${{ github.ref }} (${{ github.event.repository.updated_at}})
+          tag_name: ${{ env.FUSION_VERSION }}
+          release_name: Fusion - Release ${{ env.FUSION_VERSION }} (${{ github.event.repository.updated_at}})
           body: |
             Publishing release as [purefusion-${{ env.FUSION_VERSION }}](https://pypi.org/project/purefusion/)
           draft: false
