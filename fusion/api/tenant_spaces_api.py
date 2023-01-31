@@ -719,6 +719,13 @@ class TenantSpacesApi(object):
         :param str x_request_id: The Request ID supplied with the request, used to perform operations idempotently.
         :param str authorization: Access token (in JWT format) required to use any API endpoint.
         :param str x_correlation_id: The Correlation ID provided will be added to log messages and can be used for support. The same Correlation ID may be used for separate requests, to track a higher level workflow.
+        :param str filter: filter should use expression language for filtering
+        :param str sort: Returns the response items in the order specified. Set sort to the field(s) in the response by which to sort. Sorting can be performed on any of the fields in the response, and the items can be sorted in ascending or descending order by these fields. By default, the response items are sorted in ascending order. To sort in descending order, append the minus sign (-) to the field. A single request can be sorted on multiple fields. For example, you can sort all volumes from largest to smallest volume size, and then sort volumes of the same size in ascending order by volume name. To sort on multiple fields, list the fields as comma-separated values. (E.g. \"sort=size-,name\")
+        :param int limit:
+        :param int offset:
+        :param str id:
+        :param str name:
+        :param str display_name:
         :return: TenantSpaceList
                  If the method is called asynchronously,
                  returns the request thread.
@@ -743,12 +750,19 @@ class TenantSpacesApi(object):
         :param str x_request_id: The Request ID supplied with the request, used to perform operations idempotently.
         :param str authorization: Access token (in JWT format) required to use any API endpoint.
         :param str x_correlation_id: The Correlation ID provided will be added to log messages and can be used for support. The same Correlation ID may be used for separate requests, to track a higher level workflow.
+        :param str filter: filter should use expression language for filtering
+        :param str sort: Returns the response items in the order specified. Set sort to the field(s) in the response by which to sort. Sorting can be performed on any of the fields in the response, and the items can be sorted in ascending or descending order by these fields. By default, the response items are sorted in ascending order. To sort in descending order, append the minus sign (-) to the field. A single request can be sorted on multiple fields. For example, you can sort all volumes from largest to smallest volume size, and then sort volumes of the same size in ascending order by volume name. To sort on multiple fields, list the fields as comma-separated values. (E.g. \"sort=size-,name\")
+        :param int limit:
+        :param int offset:
+        :param str id:
+        :param str name:
+        :param str display_name:
         :return: TenantSpaceList
                  If the method is called asynchronously,
                  returns the request thread.
         """
 
-        all_params = ['tenant_name', 'x_request_id', 'authorization', 'x_correlation_id']  # noqa: E501
+        all_params = ['tenant_name', 'x_request_id', 'authorization', 'x_correlation_id', 'filter', 'sort', 'limit', 'offset', 'id', 'name', 'display_name']  # noqa: E501
         all_params.append('async_req')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
@@ -775,6 +789,20 @@ class TenantSpacesApi(object):
             path_params['tenant_name'] = params['tenant_name']  # noqa: E501
 
         query_params = []
+        if 'filter' in params:
+            query_params.append(('filter', params['filter']))  # noqa: E501
+        if 'sort' in params:
+            query_params.append(('sort', params['sort']))  # noqa: E501
+        if 'limit' in params:
+            query_params.append(('limit', params['limit']))  # noqa: E501
+        if 'offset' in params:
+            query_params.append(('offset', params['offset']))  # noqa: E501
+        if 'id' in params:
+            query_params.append(('id', params['id']))  # noqa: E501
+        if 'name' in params:
+            query_params.append(('name', params['name']))  # noqa: E501
+        if 'display_name' in params:
+            query_params.append(('display_name', params['display_name']))  # noqa: E501
 
         header_params = {}
         if 'x_request_id' in params:

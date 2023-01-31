@@ -226,7 +226,7 @@ class VolumeSnapshot(ResourceMetadata):
     def time_remaining(self):
         """Gets the time_remaining of this VolumeSnapshot.  # noqa: E501
 
-        The amount of time left until the destroyed volume snapshot is permanently eradicated. Measured in milliseconds.  # noqa: E501
+        The amount of time left until the destroyed volume snapshot is permanently eradicated. Only valid when destroyed is true. Measured in milliseconds. An expired but not yet eradicated volume snapshot has destroyed=true and time_remaining=0.  # noqa: E501
 
         :return: The time_remaining of this VolumeSnapshot.  # noqa: E501
         :rtype: int
@@ -237,7 +237,7 @@ class VolumeSnapshot(ResourceMetadata):
     def time_remaining(self, time_remaining):
         """Sets the time_remaining of this VolumeSnapshot.
 
-        The amount of time left until the destroyed volume snapshot is permanently eradicated. Measured in milliseconds.  # noqa: E501
+        The amount of time left until the destroyed volume snapshot is permanently eradicated. Only valid when destroyed is true. Measured in milliseconds. An expired but not yet eradicated volume snapshot has destroyed=true and time_remaining=0.  # noqa: E501
 
         :param time_remaining: The time_remaining of this VolumeSnapshot.  # noqa: E501
         :type: int
