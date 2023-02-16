@@ -38,6 +38,7 @@ class Volume(ResourceMetadata):
         'array': 'ArrayRef',
         'created_at': 'int',
         'source_volume_snapshot': 'VolumeSnapshotRef',
+        'source': 'ResourceReference',
         'host_access_policies': 'list[HostAccessPolicyRef]',
         'serial_number': 'str',
         'target': 'Target',
@@ -57,6 +58,7 @@ class Volume(ResourceMetadata):
         'array': 'array',
         'created_at': 'created_at',
         'source_volume_snapshot': 'source_volume_snapshot',
+        'source': 'source',
         'host_access_policies': 'host_access_policies',
         'serial_number': 'serial_number',
         'target': 'target',
@@ -66,7 +68,7 @@ class Volume(ResourceMetadata):
     if hasattr(ResourceMetadata, "attribute_map"):
         attribute_map.update(ResourceMetadata.attribute_map)
 
-    def __init__(self, size=None, tenant=None, tenant_space=None, storage_class=None, protection_policy=None, placement_group=None, array=None, created_at=None, source_volume_snapshot=None, host_access_policies=None, serial_number=None, target=None, time_remaining=None, destroyed=None, *args, **kwargs):  # noqa: E501
+    def __init__(self, size=None, tenant=None, tenant_space=None, storage_class=None, protection_policy=None, placement_group=None, array=None, created_at=None, source_volume_snapshot=None, source=None, host_access_policies=None, serial_number=None, target=None, time_remaining=None, destroyed=None, *args, **kwargs):  # noqa: E501
         """Volume - a model defined in Swagger"""  # noqa: E501
         self._size = None
         self._tenant = None
@@ -77,6 +79,7 @@ class Volume(ResourceMetadata):
         self._array = None
         self._created_at = None
         self._source_volume_snapshot = None
+        self._source = None
         self._host_access_policies = None
         self._serial_number = None
         self._target = None
@@ -98,6 +101,8 @@ class Volume(ResourceMetadata):
             self.created_at = created_at
         if source_volume_snapshot is not None:
             self.source_volume_snapshot = source_volume_snapshot
+        if source is not None:
+            self.source = source
         if host_access_policies is not None:
             self.host_access_policies = host_access_policies
         self.serial_number = serial_number
@@ -305,6 +310,27 @@ class Volume(ResourceMetadata):
         """
 
         self._source_volume_snapshot = source_volume_snapshot
+
+    @property
+    def source(self):
+        """Gets the source of this Volume.  # noqa: E501
+
+
+        :return: The source of this Volume.  # noqa: E501
+        :rtype: ResourceReference
+        """
+        return self._source
+
+    @source.setter
+    def source(self, source):
+        """Sets the source of this Volume.
+
+
+        :param source: The source of this Volume.  # noqa: E501
+        :type: ResourceReference
+        """
+
+        self._source = source
 
     @property
     def host_access_policies(self):

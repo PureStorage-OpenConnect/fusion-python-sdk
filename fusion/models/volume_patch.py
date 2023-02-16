@@ -30,6 +30,7 @@ class VolumePatch(ResourcePatch):
     """
     swagger_types = {
         'source_volume_snapshot_link': 'NullableString',
+        'source_link': 'NullableString',
         'size': 'NullableSize',
         'storage_class': 'NullableString',
         'placement_group': 'NullableString',
@@ -42,6 +43,7 @@ class VolumePatch(ResourcePatch):
 
     attribute_map = {
         'source_volume_snapshot_link': 'source_volume_snapshot_link',
+        'source_link': 'source_link',
         'size': 'size',
         'storage_class': 'storage_class',
         'placement_group': 'placement_group',
@@ -52,9 +54,10 @@ class VolumePatch(ResourcePatch):
     if hasattr(ResourcePatch, "attribute_map"):
         attribute_map.update(ResourcePatch.attribute_map)
 
-    def __init__(self, source_volume_snapshot_link=None, size=None, storage_class=None, placement_group=None, protection_policy=None, host_access_policies=None, destroyed=None, *args, **kwargs):  # noqa: E501
+    def __init__(self, source_volume_snapshot_link=None, source_link=None, size=None, storage_class=None, placement_group=None, protection_policy=None, host_access_policies=None, destroyed=None, *args, **kwargs):  # noqa: E501
         """VolumePatch - a model defined in Swagger"""  # noqa: E501
         self._source_volume_snapshot_link = None
+        self._source_link = None
         self._size = None
         self._storage_class = None
         self._placement_group = None
@@ -64,6 +67,8 @@ class VolumePatch(ResourcePatch):
         self.discriminator = None
         if source_volume_snapshot_link is not None:
             self.source_volume_snapshot_link = source_volume_snapshot_link
+        if source_link is not None:
+            self.source_link = source_link
         if size is not None:
             self.size = size
         if storage_class is not None:
@@ -98,6 +103,27 @@ class VolumePatch(ResourcePatch):
         """
 
         self._source_volume_snapshot_link = source_volume_snapshot_link
+
+    @property
+    def source_link(self):
+        """Gets the source_link of this VolumePatch.  # noqa: E501
+
+
+        :return: The source_link of this VolumePatch.  # noqa: E501
+        :rtype: NullableString
+        """
+        return self._source_link
+
+    @source_link.setter
+    def source_link(self, source_link):
+        """Sets the source_link of this VolumePatch.
+
+
+        :param source_link: The source_link of this VolumePatch.  # noqa: E501
+        :type: NullableString
+        """
+
+        self._source_link = source_link
 
     @property
     def size(self):
