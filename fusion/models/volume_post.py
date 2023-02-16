@@ -166,7 +166,7 @@ class VolumePost(ResourcePost):
     def source_link(self):
         """Gets the source_link of this VolumePost.  # noqa: E501
 
-        The link to copy data from. Supported sources - VolumeSnapshot  # noqa: E501
+        The link to copy data from. Supported sources - VolumeSnapshot, Volume  # noqa: E501
 
         :return: The source_link of this VolumePost.  # noqa: E501
         :rtype: str
@@ -177,7 +177,7 @@ class VolumePost(ResourcePost):
     def source_link(self, source_link):
         """Sets the source_link of this VolumePost.
 
-        The link to copy data from. Supported sources - VolumeSnapshot  # noqa: E501
+        The link to copy data from. Supported sources - VolumeSnapshot, Volume  # noqa: E501
 
         :param source_link: The source_link of this VolumePost.  # noqa: E501
         :type: str

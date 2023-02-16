@@ -12,6 +12,7 @@ Name | Type | Description | Notes
 **array** | [**ArrayRef**](ArrayRef.md) |  | [optional] 
 **created_at** | **int** |  | [optional] 
 **source_volume_snapshot** | [**VolumeSnapshotRef**](VolumeSnapshotRef.md) |  | [optional] 
+**source** | [**ResourceReference**](ResourceReference.md) |  | [optional] 
 **host_access_policies** | [**list[HostAccessPolicyRef]**](HostAccessPolicyRef.md) |  | [optional] 
 **serial_number** | **str** | Volume Serial Numbers, aka LUN Serial Numbers. This will be visible to initiators that connect to the volume. | 
 **target** | [**Target**](Target.md) |  | [optional] 

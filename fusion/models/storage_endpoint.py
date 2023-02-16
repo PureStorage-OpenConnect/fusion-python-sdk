@@ -32,7 +32,8 @@ class StorageEndpoint(ResourceMetadata):
         'region': 'RegionRef',
         'availability_zone': 'AvailabilityZoneRef',
         'endpoint_type': 'str',
-        'iscsi': 'StorageEndpointIscsi'
+        'iscsi': 'StorageEndpointIscsi',
+        'cbs_azure_iscsi': 'StorageEndpointCbsAzureIscsi'
     }
     if hasattr(ResourceMetadata, "swagger_types"):
         swagger_types.update(ResourceMetadata.swagger_types)
@@ -41,17 +42,19 @@ class StorageEndpoint(ResourceMetadata):
         'region': 'region',
         'availability_zone': 'availability_zone',
         'endpoint_type': 'endpoint_type',
-        'iscsi': 'iscsi'
+        'iscsi': 'iscsi',
+        'cbs_azure_iscsi': 'cbs_azure_iscsi'
     }
     if hasattr(ResourceMetadata, "attribute_map"):
         attribute_map.update(ResourceMetadata.attribute_map)
 
-    def __init__(self, region=None, availability_zone=None, endpoint_type=None, iscsi=None, *args, **kwargs):  # noqa: E501
+    def __init__(self, region=None, availability_zone=None, endpoint_type=None, iscsi=None, cbs_azure_iscsi=None, *args, **kwargs):  # noqa: E501
         """StorageEndpoint - a model defined in Swagger"""  # noqa: E501
         self._region = None
         self._availability_zone = None
         self._endpoint_type = None
         self._iscsi = None
+        self._cbs_azure_iscsi = None
         self.discriminator = None
         if region is not None:
             self.region = region
@@ -60,6 +63,8 @@ class StorageEndpoint(ResourceMetadata):
         self.endpoint_type = endpoint_type
         if iscsi is not None:
             self.iscsi = iscsi
+        if cbs_azure_iscsi is not None:
+            self.cbs_azure_iscsi = cbs_azure_iscsi
         ResourceMetadata.__init__(self, *args, **kwargs)
 
     @property
@@ -126,7 +131,7 @@ class StorageEndpoint(ResourceMetadata):
         """
         if endpoint_type is None:
             raise ValueError("Invalid value for `endpoint_type`, must not be `None`")  # noqa: E501
-        allowed_values = ["iscsi"]  # noqa: E501
+        allowed_values = ["iscsi", "cbs-azure-iscsi"]  # noqa: E501
         if endpoint_type not in allowed_values:
             raise ValueError(
                 "Invalid value for `endpoint_type` ({0}), must be one of {1}"  # noqa: E501
@@ -155,6 +160,27 @@ class StorageEndpoint(ResourceMetadata):
         """
 
         self._iscsi = iscsi
+
+    @property
+    def cbs_azure_iscsi(self):
+        """Gets the cbs_azure_iscsi of this StorageEndpoint.  # noqa: E501
+
+
+        :return: The cbs_azure_iscsi of this StorageEndpoint.  # noqa: E501
+        :rtype: StorageEndpointCbsAzureIscsi
+        """
+        return self._cbs_azure_iscsi
+
+    @cbs_azure_iscsi.setter
+    def cbs_azure_iscsi(self, cbs_azure_iscsi):
+        """Sets the cbs_azure_iscsi of this StorageEndpoint.
+
+
+        :param cbs_azure_iscsi: The cbs_azure_iscsi of this StorageEndpoint.  # noqa: E501
+        :type: StorageEndpointCbsAzureIscsi
+        """
+
+        self._cbs_azure_iscsi = cbs_azure_iscsi
 
     def to_dict(self):
         """Returns the model properties as a dict"""

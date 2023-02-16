@@ -30,26 +30,31 @@ class StorageEndpointPost(ResourcePost):
     """
     swagger_types = {
         'endpoint_type': 'str',
-        'iscsi': 'StorageEndpointIscsiPost'
+        'iscsi': 'StorageEndpointIscsiPost',
+        'cbs_azure_iscsi': 'StorageEndpointCbsAzureIscsiPost'
     }
     if hasattr(ResourcePost, "swagger_types"):
         swagger_types.update(ResourcePost.swagger_types)
 
     attribute_map = {
         'endpoint_type': 'endpoint_type',
-        'iscsi': 'iscsi'
+        'iscsi': 'iscsi',
+        'cbs_azure_iscsi': 'cbs_azure_iscsi'
     }
     if hasattr(ResourcePost, "attribute_map"):
         attribute_map.update(ResourcePost.attribute_map)
 
-    def __init__(self, endpoint_type=None, iscsi=None, *args, **kwargs):  # noqa: E501
+    def __init__(self, endpoint_type=None, iscsi=None, cbs_azure_iscsi=None, *args, **kwargs):  # noqa: E501
         """StorageEndpointPost - a model defined in Swagger"""  # noqa: E501
         self._endpoint_type = None
         self._iscsi = None
+        self._cbs_azure_iscsi = None
         self.discriminator = None
         self.endpoint_type = endpoint_type
         if iscsi is not None:
             self.iscsi = iscsi
+        if cbs_azure_iscsi is not None:
+            self.cbs_azure_iscsi = cbs_azure_iscsi
         ResourcePost.__init__(self, *args, **kwargs)
 
     @property
@@ -74,7 +79,7 @@ class StorageEndpointPost(ResourcePost):
         """
         if endpoint_type is None:
             raise ValueError("Invalid value for `endpoint_type`, must not be `None`")  # noqa: E501
-        allowed_values = ["iscsi"]  # noqa: E501
+        allowed_values = ["iscsi", "cbs-azure-iscsi"]  # noqa: E501
         if endpoint_type not in allowed_values:
             raise ValueError(
                 "Invalid value for `endpoint_type` ({0}), must be one of {1}"  # noqa: E501
@@ -103,6 +108,27 @@ class StorageEndpointPost(ResourcePost):
         """
 
         self._iscsi = iscsi
+
+    @property
+    def cbs_azure_iscsi(self):
+        """Gets the cbs_azure_iscsi of this StorageEndpointPost.  # noqa: E501
+
+
+        :return: The cbs_azure_iscsi of this StorageEndpointPost.  # noqa: E501
+        :rtype: StorageEndpointCbsAzureIscsiPost
+        """
+        return self._cbs_azure_iscsi
+
+    @cbs_azure_iscsi.setter
+    def cbs_azure_iscsi(self, cbs_azure_iscsi):
+        """Sets the cbs_azure_iscsi of this StorageEndpointPost.
+
+
+        :param cbs_azure_iscsi: The cbs_azure_iscsi of this StorageEndpointPost.  # noqa: E501
+        :type: StorageEndpointCbsAzureIscsiPost
+        """
+
+        self._cbs_azure_iscsi = cbs_azure_iscsi
 
     def to_dict(self):
         """Returns the model properties as a dict"""
