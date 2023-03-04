@@ -4,6 +4,7 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **source_volume_snapshot_link** | [**NullableString**](NullableString.md) |  | [optional] 
+**source_link** | [**NullableString**](NullableString.md) |  | [optional] 
 **size** | [**NullableSize**](NullableSize.md) |  | [optional] 
 **storage_class** | [**NullableString**](NullableString.md) |  | [optional] 
 **placement_group** | [**NullableString**](NullableString.md) |  | [optional] 

@@ -39,7 +39,8 @@ class StorageEndpointIscsiPost(object):
         """StorageEndpointIscsiPost - a model defined in Swagger"""  # noqa: E501
         self._discovery_interfaces = None
         self.discriminator = None
-        self.discovery_interfaces = discovery_interfaces
+        if discovery_interfaces is not None:
+            self.discovery_interfaces = discovery_interfaces
 
     @property
     def discovery_interfaces(self):
@@ -59,8 +60,6 @@ class StorageEndpointIscsiPost(object):
         :param discovery_interfaces: The discovery_interfaces of this StorageEndpointIscsiPost.  # noqa: E501
         :type: list[StorageEndpointIscsiDiscoveryInterfacePost]
         """
-        if discovery_interfaces is None:
-            raise ValueError("Invalid value for `discovery_interfaces`, must not be `None`")  # noqa: E501
 
         self._discovery_interfaces = discovery_interfaces
 

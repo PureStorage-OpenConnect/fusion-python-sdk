@@ -308,15 +308,21 @@ class ApiException(Exception):
             self.body = None
             self.headers = None
 
-    def __str__(self):
+        self.message = self.construct_message()
+
+    def construct_message(self):
         """Custom error messages for exception"""
-        error_message = "({0})\n"\
-                        "Reason: {1}\n".format(self.status, self.reason)
+        error_message = "Status: {0}, Reason: {1}".format(self.status, self.reason)
         if self.headers:
-            error_message += "HTTP response headers: {0}\n".format(
-                self.headers)
+            error_message += ", HTTP response headers: {0}".format(self.headers)
 
         if self.body:
-            error_message += "HTTP response body: {0}\n".format(self.body)
+            error_message += ", HTTP response body: {0}".format(self.body)
 
         return error_message
+
+    def __repr__(self):
+        return f"{self.__class__.__name__}: {self.message}"
+
+    def __str__(self):
+        return repr(self)
