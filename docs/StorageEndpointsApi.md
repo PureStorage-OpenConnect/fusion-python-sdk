@@ -1,6 +1,6 @@
 # fusion.StorageEndpointsApi
 
-All URIs are relative to *https://api.pure1.purestorage.com/fusion/api/1.0*
+All URIs are relative to *https://api.pure1.purestorage.com/fusion/api/1.1*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------

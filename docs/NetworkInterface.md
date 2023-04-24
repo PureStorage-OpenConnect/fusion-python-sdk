@@ -8,6 +8,7 @@ Name | Type | Description | Notes
 **array** | [**ArrayRef**](ArrayRef.md) |  | [optional] 
 **interface_type** | **str** | The interface type. | 
 **eth** | [**NetworkInterfaceEth**](NetworkInterfaceEth.md) |  | [optional] 
+**fc** | [**NetworkInterfaceFc**](NetworkInterfaceFc.md) |  | [optional] 
 **services** | **list[str]** | The services provided by this Network Interface. | [optional] 
 **enabled** | **bool** | True if interface is in use. | 
 **network_interface_group** | [**NetworkInterfaceGroupRef**](NetworkInterfaceGroupRef.md) |  | [optional] 

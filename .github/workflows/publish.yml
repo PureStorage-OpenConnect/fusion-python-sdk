@@ -1,6 +1,7 @@
-# This workflow will build source and binary distributions based
-# on the current repository tag. Artifacts are then uploaded to
-# PyPI and a GitHub Release is created.
+# This workflow will build a binary distribution, with
+# a version based on the current branch name. 
+# Artifacts are uploaded to PyPI, 
+# then a GitHub Release and a tag are created.
 #
 
 name: Create a Release and Publish to PyPI
