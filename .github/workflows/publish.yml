@@ -12,8 +12,6 @@ on:
       - main
     types:
       - closed
-  # Allows you to run this workflow manually
-  workflow_dispatch:
 
 jobs:
   build-n-publish:
@@ -47,17 +45,19 @@ jobs:
           echo "FUSION_VERSION=$VERSION" >> $GITHUB_ENV
 
       - name: Publish distribution 📦 to PyPI
+        if: github.event.pull_request.merged == true
         uses: pypa/gh-action-pypi-publish@release/v1
         with:
           password: ${{ secrets.PYPI_API_TOKEN }}
 
       - name: Create a Github Release
+        if: github.event.pull_request.merged == true
         id: create_release
         uses: actions/create-release@v1
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }} # This token is provided automatically by Actions
         with:
-          tag_name: ${{ env.FUSION_VERSION }}
+          tag_name: v${{ env.FUSION_VERSION }}
           release_name: Fusion - Release ${{ env.FUSION_VERSION }} (${{ github.event.repository.updated_at}})
           body: |
             Publishing release as [purefusion-${{ env.FUSION_VERSION }}](https://pypi.org/project/purefusion/)
@@ -65,6 +65,7 @@ jobs:
           prerelease: false
 
       - name: Upload Release Asset (tar.gz)
+        if: github.event.pull_request.merged == true
         uses: actions/upload-release-asset@v1
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}

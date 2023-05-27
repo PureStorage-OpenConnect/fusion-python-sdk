@@ -50,12 +50,9 @@ class Space(object):
         self.discriminator = None
         if resource is not None:
             self.resource = resource
-        if total_physical_space is not None:
-            self.total_physical_space = total_physical_space
-        if unique_space is not None:
-            self.unique_space = unique_space
-        if snapshot_space is not None:
-            self.snapshot_space = snapshot_space
+        self.total_physical_space = total_physical_space
+        self.unique_space = unique_space
+        self.snapshot_space = snapshot_space
 
     @property
     def resource(self):
@@ -98,6 +95,8 @@ class Space(object):
         :param total_physical_space: The total_physical_space of this Space.  # noqa: E501
         :type: int
         """
+        if total_physical_space is None:
+            raise ValueError("Invalid value for `total_physical_space`, must not be `None`")  # noqa: E501
 
         self._total_physical_space = total_physical_space
 
@@ -121,6 +120,8 @@ class Space(object):
         :param unique_space: The unique_space of this Space.  # noqa: E501
         :type: int
         """
+        if unique_space is None:
+            raise ValueError("Invalid value for `unique_space`, must not be `None`")  # noqa: E501
 
         self._unique_space = unique_space
 
@@ -128,7 +129,7 @@ class Space(object):
     def snapshot_space(self):
         """Gets the snapshot_space of this Space.  # noqa: E501
 
-        The physical space occupied by data unique to one or more snapshots. Measured in bytes.  # noqa: E501
+        The sum of total physical space occupied by one or more snapshots associated with the objects. Measured in bytes.  # noqa: E501
 
         :return: The snapshot_space of this Space.  # noqa: E501
         :rtype: int
@@ -139,11 +140,13 @@ class Space(object):
     def snapshot_space(self, snapshot_space):
         """Sets the snapshot_space of this Space.
 
-        The physical space occupied by data unique to one or more snapshots. Measured in bytes.  # noqa: E501
+        The sum of total physical space occupied by one or more snapshots associated with the objects. Measured in bytes.  # noqa: E501
 
         :param snapshot_space: The snapshot_space of this Space.  # noqa: E501
         :type: int
         """
+        if snapshot_space is None:
+            raise ValueError("Invalid value for `snapshot_space`, must not be `None`")  # noqa: E501
 
         self._snapshot_space = snapshot_space
 
