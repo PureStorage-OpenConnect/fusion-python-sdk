@@ -1,8 +1,7 @@
 import jwt
 import requests
 import time
-from io import StringIO
-from paramiko import RSAKey
+from cryptography.hazmat.primitives import serialization
 
 from .exceptions import PureError
 
@@ -67,13 +66,15 @@ class TokenManager(object):
 
     def _get_private_key(self, private_key_file, private_key_password):
         try:
-            rsa_key = RSAKey.from_private_key_file(private_key_file, private_key_password)
-        except:
+            with open(private_key_file, mode="rb") as file:
+                pk_bytes = file.read()
+
+            password = private_key_password.encode() if private_key_password else None
+            rsa_key = serialization.load_pem_private_key(pk_bytes, password)
+
+            return rsa_key
+        except Exception:
             raise PureError('Could not read private key file')
-        with StringIO() as buf:
-            rsa_key.write_private_key(buf)
-            private_key = buf.getvalue()
-        return private_key
 
     def get_access_token(self, refresh=False):
         """

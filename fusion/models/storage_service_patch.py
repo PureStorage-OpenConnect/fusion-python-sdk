@@ -29,45 +29,19 @@ class StorageServicePatch(ResourcePatch):
                             and the value is json key in definition.
     """
     swagger_types = {
-        'hardware_types': 'NullableStringArray'
     }
     if hasattr(ResourcePatch, "swagger_types"):
         swagger_types.update(ResourcePatch.swagger_types)
 
     attribute_map = {
-        'hardware_types': 'hardware_types'
     }
     if hasattr(ResourcePatch, "attribute_map"):
         attribute_map.update(ResourcePatch.attribute_map)
 
-    def __init__(self, hardware_types=None, *args, **kwargs):  # noqa: E501
+    def __init__(self, *args, **kwargs):  # noqa: E501
         """StorageServicePatch - a model defined in Swagger"""  # noqa: E501
-        self._hardware_types = None
         self.discriminator = None
-        if hardware_types is not None:
-            self.hardware_types = hardware_types
         ResourcePatch.__init__(self, *args, **kwargs)
-
-    @property
-    def hardware_types(self):
-        """Gets the hardware_types of this StorageServicePatch.  # noqa: E501
-
-
-        :return: The hardware_types of this StorageServicePatch.  # noqa: E501
-        :rtype: NullableStringArray
-        """
-        return self._hardware_types
-
-    @hardware_types.setter
-    def hardware_types(self, hardware_types):
-        """Sets the hardware_types of this StorageServicePatch.
-
-
-        :param hardware_types: The hardware_types of this StorageServicePatch.  # noqa: E501
-        :type: NullableStringArray
-        """
-
-        self._hardware_types = hardware_types
 
     def to_dict(self):
         """Returns the model properties as a dict"""
