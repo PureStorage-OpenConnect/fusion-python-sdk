@@ -1,6 +1,6 @@
 # fusion.SnapshotsApi
 
-All URIs are relative to *https://api.pure1.purestorage.com/fusion/api/1.1*
+All URIs are relative to *https://api.pure1.purestorage.com/fusion/api/1.2*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
@@ -9,7 +9,7 @@ Method | HTTP request | Description
 [**get_snapshot**](SnapshotsApi.md#get_snapshot) | **GET** /tenants/{tenant_name}/tenant-spaces/{tenant_space_name}/snapshots/{snapshot_name} | Gets a specific Snapshot.
 [**get_snapshot_by_id**](SnapshotsApi.md#get_snapshot_by_id) | **GET** /resources/snapshots/{snapshot_id} | Gets a specific Snapshot.
 [**list_snapshots**](SnapshotsApi.md#list_snapshots) | **GET** /tenants/{tenant_name}/tenant-spaces/{tenant_space_name}/snapshots | Gets a list of Snapshots.
-[**query_snapshots**](SnapshotsApi.md#query_snapshots) | **GET** /resources/snapshots | (Opt-in) Get all Snapshots in the org. Provide a filter to search for specific snapshots.
+[**query_snapshots**](SnapshotsApi.md#query_snapshots) | **GET** /resources/snapshots | Get all Snapshots in the org. Provide a filter to search for specific snapshots.
 [**update_snapshot**](SnapshotsApi.md#update_snapshot) | **PATCH** /tenants/{tenant_name}/tenant-spaces/{tenant_space_name}/snapshots/{snapshot_name} | Recovers a pending snapshot
 
 # **create_snapshot**
@@ -333,7 +333,7 @@ Name | Type | Description  | Notes
 # **query_snapshots**
 > SnapshotList query_snapshots(filter=filter, sort=sort, limit=limit, offset=offset, id=id, name=name, display_name=display_name, tenant_space_id=tenant_space_id, tenant_id=tenant_id, protection_policy_id=protection_policy_id, destroyed=destroyed, time_remaining=time_remaining, x_request_id=x_request_id, authorization=authorization, x_correlation_id=x_correlation_id)
 
-(Opt-in) Get all Snapshots in the org. Provide a filter to search for specific snapshots.
+Get all Snapshots in the org. Provide a filter to search for specific snapshots.
 
 ### Example
 ```python
@@ -366,7 +366,7 @@ authorization = 'authorization_example' # str | Access token (in JWT format) req
 x_correlation_id = 'x_correlation_id_example' # str | The Correlation ID provided will be added to log messages and can be used for support. The same Correlation ID may be used for separate requests, to track a higher level workflow. (optional)
 
 try:
-    # (Opt-in) Get all Snapshots in the org. Provide a filter to search for specific snapshots.
+    # Get all Snapshots in the org. Provide a filter to search for specific snapshots.
     api_response = api_instance.query_snapshots(filter=filter, sort=sort, limit=limit, offset=offset, id=id, name=name, display_name=display_name, tenant_space_id=tenant_space_id, tenant_id=tenant_id, protection_policy_id=protection_policy_id, destroyed=destroyed, time_remaining=time_remaining, x_request_id=x_request_id, authorization=authorization, x_correlation_id=x_correlation_id)
     pprint(api_response)
 except ApiException as e:
