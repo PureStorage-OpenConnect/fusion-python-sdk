@@ -1,6 +1,6 @@
 # fusion.TenantSpacesApi
 
-All URIs are relative to *https://api.pure1.purestorage.com/fusion/api/1.1*
+All URIs are relative to *https://api.pure1.purestorage.com/fusion/api/1.2*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
@@ -11,7 +11,7 @@ Method | HTTP request | Description
 [**get_tenant_space_performance**](TenantSpacesApi.md#get_tenant_space_performance) | **GET** /tenants/{tenant_name}/tenant-spaces/{tenant_space_name}/performance | Gets performance metrics of a specific Tenant Space.
 [**get_tenant_space_space**](TenantSpacesApi.md#get_tenant_space_space) | **GET** /tenants/{tenant_name}/tenant-spaces/{tenant_space_name}/space | Gets space metrics of a specific Tenant Space.
 [**list_tenant_spaces**](TenantSpacesApi.md#list_tenant_spaces) | **GET** /tenants/{tenant_name}/tenant-spaces | Gets a list of all Tenant Spaces.
-[**query_tenant_spaces**](TenantSpacesApi.md#query_tenant_spaces) | **GET** /resources/tenant-spaces | (Opt-in) Get all Tenant Spaces in the org. Provide a filter to search for specific Tenant Spaces
+[**query_tenant_spaces**](TenantSpacesApi.md#query_tenant_spaces) | **GET** /resources/tenant-spaces | Get all Tenant Spaces in the org. Provide a filter to search for specific Tenant Spaces
 [**update_tenant_space**](TenantSpacesApi.md#update_tenant_space) | **PATCH** /tenants/{tenant_name}/tenant-spaces/{tenant_space_name} | Updates a Tenant Space.
 
 # **create_tenant_space**
@@ -433,7 +433,7 @@ Name | Type | Description  | Notes
 # **query_tenant_spaces**
 > TenantSpaceList query_tenant_spaces(filter=filter, sort=sort, limit=limit, offset=offset, id=id, name=name, display_name=display_name, tenant_id=tenant_id, x_request_id=x_request_id, authorization=authorization, x_correlation_id=x_correlation_id)
 
-(Opt-in) Get all Tenant Spaces in the org. Provide a filter to search for specific Tenant Spaces
+Get all Tenant Spaces in the org. Provide a filter to search for specific Tenant Spaces
 
 ### Example
 ```python
@@ -462,7 +462,7 @@ authorization = 'authorization_example' # str | Access token (in JWT format) req
 x_correlation_id = 'x_correlation_id_example' # str | The Correlation ID provided will be added to log messages and can be used for support. The same Correlation ID may be used for separate requests, to track a higher level workflow. (optional)
 
 try:
-    # (Opt-in) Get all Tenant Spaces in the org. Provide a filter to search for specific Tenant Spaces
+    # Get all Tenant Spaces in the org. Provide a filter to search for specific Tenant Spaces
     api_response = api_instance.query_tenant_spaces(filter=filter, sort=sort, limit=limit, offset=offset, id=id, name=name, display_name=display_name, tenant_id=tenant_id, x_request_id=x_request_id, authorization=authorization, x_correlation_id=x_correlation_id)
     pprint(api_response)
 except ApiException as e:

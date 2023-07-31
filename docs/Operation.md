@@ -15,6 +15,9 @@ Name | Type | Description | Notes
 **retry_in** | **int** | Recommended time to wait before getting the operation again to observe status change (polling interval). Unit is milliseconds, e.g., 100. | 
 **error** | [**Error**](Error.md) |  | [optional] 
 **created_at** | **int** | The time that the operation was created, in milliseconds since the Unix epoch. | 
+**started_at** | **int** | The time that the operation was admitted, in milliseconds since the Unix epoch. | 
+**ended_at** | **int** | The time that the operation ended with status Succeeded or Failed, in milliseconds since the Unix epoch. | 
+**update_fields** | **dict(str, str)** | Key/value pairs of the fields this operation is updating, if it is an Update operation. E.g. destroyed:true or size:1048576. | 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

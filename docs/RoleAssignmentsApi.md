@@ -1,6 +1,6 @@
 # fusion.RoleAssignmentsApi
 
-All URIs are relative to *https://api.pure1.purestorage.com/fusion/api/1.1*
+All URIs are relative to *https://api.pure1.purestorage.com/fusion/api/1.2*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------

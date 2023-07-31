@@ -1,6 +1,6 @@
 # fusion.VolumesApi
 
-All URIs are relative to *https://api.pure1.purestorage.com/fusion/api/1.1*
+All URIs are relative to *https://api.pure1.purestorage.com/fusion/api/1.2*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
@@ -11,7 +11,7 @@ Method | HTTP request | Description
 [**get_volume_performance**](VolumesApi.md#get_volume_performance) | **GET** /tenants/{tenant_name}/tenant-spaces/{tenant_space_name}/volumes/{volume_name}/performance | (Provider) Gets performance metrics of a specific Volume.
 [**get_volume_space**](VolumesApi.md#get_volume_space) | **GET** /tenants/{tenant_name}/tenant-spaces/{tenant_space_name}/volumes/{volume_name}/space | (Provider) Gets space metrics of a specific Volume.
 [**list_volumes**](VolumesApi.md#list_volumes) | **GET** /tenants/{tenant_name}/tenant-spaces/{tenant_space_name}/volumes | Gets a list of all Volumes.
-[**query_volumes**](VolumesApi.md#query_volumes) | **GET** /resources/volumes | (Opt-in) Get all Volumes in the org. Provide a filter to search for specific volumes.
+[**query_volumes**](VolumesApi.md#query_volumes) | **GET** /resources/volumes | Get all Volumes in the org. Provide a filter to search for specific volumes.
 [**update_volume**](VolumesApi.md#update_volume) | **PATCH** /tenants/{tenant_name}/tenant-spaces/{tenant_space_name}/volumes/{volume_name} | Updates a Volume -- renaming, and resizing it; changing its Storage Class; changing its Placement Group; adding or removing host connections.
 
 # **create_volume**
@@ -467,7 +467,7 @@ Name | Type | Description  | Notes
 # **query_volumes**
 > VolumeList query_volumes(filter=filter, sort=sort, limit=limit, offset=offset, id=id, name=name, display_name=display_name, serial_number=serial_number, size=size, created_at=created_at, tenant_space_id=tenant_space_id, tenant_id=tenant_id, storage_class_id=storage_class_id, placement_group_id=placement_group_id, protection_policy_id=protection_policy_id, array_id=array_id, source_volume_snapshot_id=source_volume_snapshot_id, iqn=iqn, destroyed=destroyed, time_remaining=time_remaining, host_access_policy_id=host_access_policy_id, x_request_id=x_request_id, authorization=authorization, x_correlation_id=x_correlation_id)
 
-(Opt-in) Get all Volumes in the org. Provide a filter to search for specific volumes.
+Get all Volumes in the org. Provide a filter to search for specific volumes.
 
 ### Example
 ```python
@@ -509,7 +509,7 @@ authorization = 'authorization_example' # str | Access token (in JWT format) req
 x_correlation_id = 'x_correlation_id_example' # str | The Correlation ID provided will be added to log messages and can be used for support. The same Correlation ID may be used for separate requests, to track a higher level workflow. (optional)
 
 try:
-    # (Opt-in) Get all Volumes in the org. Provide a filter to search for specific volumes.
+    # Get all Volumes in the org. Provide a filter to search for specific volumes.
     api_response = api_instance.query_volumes(filter=filter, sort=sort, limit=limit, offset=offset, id=id, name=name, display_name=display_name, serial_number=serial_number, size=size, created_at=created_at, tenant_space_id=tenant_space_id, tenant_id=tenant_id, storage_class_id=storage_class_id, placement_group_id=placement_group_id, protection_policy_id=protection_policy_id, array_id=array_id, source_volume_snapshot_id=source_volume_snapshot_id, iqn=iqn, destroyed=destroyed, time_remaining=time_remaining, host_access_policy_id=host_access_policy_id, x_request_id=x_request_id, authorization=authorization, x_correlation_id=x_correlation_id)
     pprint(api_response)
 except ApiException as e:
