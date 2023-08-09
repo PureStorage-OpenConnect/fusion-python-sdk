@@ -1,12 +1,13 @@
 # fusion.OperationsApi
 
-All URIs are relative to *https://api.pure1.purestorage.com/fusion/api/1.2*
+All URIs are relative to *https://api.pure1.purestorage.com/fusion/api/1.3*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**get_operation**](OperationsApi.md#get_operation) | **GET** /operations/{id} | Gets a specific Operation.
 [**get_operation_by_id**](OperationsApi.md#get_operation_by_id) | **GET** /resources/operations/{id} | Gets a specific Operation.
 [**list_operations**](OperationsApi.md#list_operations) | **GET** /operations | Gets a list of Operations matching the criteria.
+[**update_operation**](OperationsApi.md#update_operation) | **PATCH** /operations/{id} | Updates a specific Operation.
 
 # **get_operation**
 > Operation get_operation(id, x_request_id=x_request_id, authorization=authorization, x_correlation_id=x_correlation_id)
@@ -198,6 +199,64 @@ Name | Type | Description  | Notes
 ### HTTP request headers
 
  - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **update_operation**
+> Operation update_operation(body, id, x_request_id=x_request_id, authorization=authorization, x_correlation_id=x_correlation_id)
+
+Updates a specific Operation.
+
+### Example
+```python
+from __future__ import print_function
+import time
+import fusion
+from fusion.rest import ApiException
+from pprint import pprint
+
+# Configure OAuth2 access token for authorization: oauth
+configuration = fusion.Configuration()
+configuration.access_token = 'YOUR_ACCESS_TOKEN'
+
+# create an instance of the API class
+api_instance = fusion.OperationsApi(fusion.ApiClient(configuration))
+body = fusion.OperationPatch() # OperationPatch | 
+id = 'id_example' # str | The Operation ID
+x_request_id = 'x_request_id_example' # str | The Request ID supplied with the request, used to perform operations idempotently. (optional)
+authorization = 'authorization_example' # str | Access token (in JWT format) required to use any API endpoint. (optional)
+x_correlation_id = 'x_correlation_id_example' # str | The Correlation ID provided will be added to log messages and can be used for support. The same Correlation ID may be used for separate requests, to track a higher level workflow. (optional)
+
+try:
+    # Updates a specific Operation.
+    api_response = api_instance.update_operation(body, id, x_request_id=x_request_id, authorization=authorization, x_correlation_id=x_correlation_id)
+    pprint(api_response)
+except ApiException as e:
+    print("Exception when calling OperationsApi->update_operation: %s\n" % e)
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **body** | [**OperationPatch**](OperationPatch.md)|  | 
+ **id** | **str**| The Operation ID | 
+ **x_request_id** | **str**| The Request ID supplied with the request, used to perform operations idempotently. | [optional] 
+ **authorization** | **str**| Access token (in JWT format) required to use any API endpoint. | [optional] 
+ **x_correlation_id** | **str**| The Correlation ID provided will be added to log messages and can be used for support. The same Correlation ID may be used for separate requests, to track a higher level workflow. | [optional] 
+
+### Return type
+
+[**Operation**](Operation.md)
+
+### Authorization
+
+[accessToken](../README.md#accessToken), [oauth](../README.md#oauth)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
  - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
