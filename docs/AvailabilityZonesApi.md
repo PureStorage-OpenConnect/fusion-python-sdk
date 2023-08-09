@@ -1,6 +1,6 @@
 # fusion.AvailabilityZonesApi
 
-All URIs are relative to *https://api.pure1.purestorage.com/fusion/api/1.2*
+All URIs are relative to *https://api.pure1.purestorage.com/fusion/api/1.3*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
